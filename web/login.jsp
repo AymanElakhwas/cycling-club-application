@@ -16,8 +16,8 @@
 <form action="/Login" method="Post">
     <cyclist:Input type="text" name="username" autocomplete="true" required="true"/>
     <cyclist:Input type="password" name="password" autocomplete="false" required="true"/>
-    <input type="submit" value="Submit">
-    <input type="reset" value="Cancle"/>
+    <cyclist:Input type="submit" value="Submit"/>
+    <cyclist:Input type="reset" value="Reset"/>
 </form>
 
 </body>

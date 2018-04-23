@@ -11,11 +11,16 @@ public class InputCustomTag extends SimpleTagSupport {
     String name;
     String autocomplete;
     String required;
+    String value;
 
     public void doTag() throws IOException {
         JspWriter out = getJspContext().getOut();
-        if(name!=null&&type!=null&&autocomplete!=null) {
+        if(type!=null&&name!=null&&autocomplete!=null&&value!=null) {
+            out.write(String.format("<input type='%s' name='%s' autocomplete='%s' %s value='%s'/>", type, name , autocomplete , (required.equals("true")?"required":"") , value));
+        }else if(type!=null&&name!=null&&autocomplete!=null){
             out.write(String.format("<input type='%s' name='%s' autocomplete='%s' %s/>", type, name , autocomplete , (required.equals("true")?"required":"")));
+        }else if(type!=null && value !=null){
+            out.write(String.format("<input type='%s' value='%s'/>", type, value));
         }else{
             out.write(String.format("<input type='%s' %s/>" , type ,(required.equals("true")?"required":"")));
         }
@@ -33,4 +38,5 @@ public class InputCustomTag extends SimpleTagSupport {
     public void setRequired(String required){
         this.required = required;
     }
+    public void setValue(String value){ this.value=value; }
 }
