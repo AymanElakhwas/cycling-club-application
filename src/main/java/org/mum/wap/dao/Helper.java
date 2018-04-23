@@ -8,11 +8,12 @@ import java.sql.SQLException;
 
 public class Helper {
 
+    public Helper(){}
 
-    static Connection dbConn = null;
-    static PreparedStatement crunchifyPrepareStat = null;
+    public static Connection dbConn = null;
+    public static PreparedStatement crunchifyPrepareStat = null;
 
-    private static void makeJDBCConnection() {
+    public static void makeJDBCConnection() {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -24,12 +25,10 @@ public class Helper {
         }
 
         try {
-            // DriverManager: The basic service for managing a set of JDBC drivers.
-            dbConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/crunchify", "root", "");
+
+            dbConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cycling", "root", "");
             if (dbConn != null) {
-                log("Connection Successful! Enjoy. Now it's time to push data");
-            } else {
-                log("Failed to make connection!");
+                log("MySQL Connection Success!");
             }
         } catch (SQLException e) {
             log("MySQL Connection Failed!");
@@ -39,7 +38,7 @@ public class Helper {
 
     }
 
-    private static void addDataToDB(String companyName, String address, int totalEmployee, String webSite) {
+    public static void addDataToDB(String companyName, String address, int totalEmployee, String webSite) {
 
         try {
             String insertQueryStatement = "INSERT  INTO  Employee  VALUES  (?,?,?,?)";
@@ -60,36 +59,34 @@ public class Helper {
         }
     }
 
-    private static void getDataFromDB() {
+    public static ResultSet getDataFromDB(String getQueryStatement) {
 
         try {
-            // MySQL Select Query Tutorial
-            String getQueryStatement = "SELECT * FROM employee";
 
             crunchifyPrepareStat = dbConn.prepareStatement(getQueryStatement);
 
             // Execute the Query, and get a java ResultSet
-            ResultSet rs = crunchifyPrepareStat.executeQuery();
-
-            // Let's iterate through the java ResultSet
-            while (rs.next()) {
-                String name = rs.getString("Name");
-                String address = rs.getString("Address");
-                int employeeCount = rs.getInt("EmployeeCount");
-                String website = rs.getString("Website");
-
-                // Simply Print the results
-                System.out.format("%s, %s, %s, %s\n", name, address, employeeCount, website);
-            }
-
+            return crunchifyPrepareStat.executeQuery();
         } catch (
 
                 SQLException e) {
             e.printStackTrace();
+            return null;
         }
 
     }
-    private static void log(String string) {
+
+    public static void closeConnection() {
+
+        try {
+            crunchifyPrepareStat.close();
+            dbConn.close(); // connection close
+        } catch (SQLException e) {
+             e.printStackTrace();
+         }
+    }
+
+        public static void log(String string) {
         System.out.println(string);
 
     }
