@@ -15,7 +15,14 @@
     <link rel="stylesheet" href="resources/styles/master.css">
 </head>
 <body>
-
+<section class="hero is-dark">
+    <div class="container" style="font-family: cursive;font-size: 40px;">
+        <img src="resources/images/cycling-logo-white-small.png" class="logo-img">
+        Cyclying Club Application
+    </div>
+</section>
+<div class="login-container" style="margin: 50px auto;width: 60%;text-align: center; ">
+<h1>Please Provide Your Username and Passord to Login!</h1>
 <form action="/Login" method="Post">
     <cyclist:ERROR text="Your UserName or Password is Wrong" htmlClass="${error!=null?error:'nodisplay'}"/>
     <cyclist:Input type="text" name="username" autocomplete="true" required="true"/>
@@ -23,6 +30,7 @@
     <cyclist:Input type="submit" value="Submit"/>
     <cyclist:Input type="reset" value="Reset"/>
 </form>
+</div>
 
 </body>
 </html>
