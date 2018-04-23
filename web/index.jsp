@@ -6,11 +6,59 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$ $END$
-  </body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cycling Club</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link rel="stylesheet" href="resources/styles/master.css">
+</head>
+<body>
+<section class="hero is-dark">
+    <div class="container">
+        <img src="resources/images/cycling-logo-white-small.png" class="logo-img">
+        <span class="icon is-small username-icon"><i
+                class="fas fa-user-circle"></i></span>
+        <h4 class="title is-4 username-txt">User</h4>
+
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+
+        <div class="tabs is-right">
+            <ul>
+                <li class="is-active">
+                    <a>
+                        <span class="icon is-small"><i class="far fa-calendar-alt"></i></span>
+                        <span>Upcoming</span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="icon is-small"><i class="fas fa-video"></i></span>
+                        <span>Live</span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="icon is-small"><i class="far fa-clock"></i></span>
+                        <span>Enrolled Rides</span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="icon is-small"><i class="fas fa-flag-checkered"></i></span>
+                        <span>My Rides</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+</body>
 </html>
