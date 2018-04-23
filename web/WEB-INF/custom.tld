@@ -1,0 +1,29 @@
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" version="2.0">
+    <tlib-version>1.0</tlib-version>
+    <short-name>Cycling Custom Tag</short-name>
+    <tag>
+        <name>Input</name>
+        <tag-class>org.mum.wap.presentation.customtag.InputCustomTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>type</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>autocomplete</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>required</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>
