@@ -12,6 +12,27 @@ public class User {
     private List<Event> enrolledEvents = new ArrayList<>();
     private List<Event> createdEvents = new ArrayList<>();
 
+    public User() {
+    }
+
+    public User(long id, String name, String username, String password, String imgUrl) {
+        this.id = id;
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.imgUrl = imgUrl;
+    }
+
+    public User(long id, String name, String username, String password, String imgUrl, List<Event> enrolledEvents, List<Event> createdEvents) {
+        this.id = id;
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.imgUrl = imgUrl;
+        this.enrolledEvents = enrolledEvents;
+        this.createdEvents = createdEvents;
+    }
+
     public long getId() {
         return id;
     }

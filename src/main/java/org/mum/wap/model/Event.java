@@ -14,6 +14,29 @@ public class Event {
     private List<User> participants = new ArrayList<>();
     private List<RoutePoint> route = new ArrayList<>();
 
+    public Event() {
+    }
+
+    public Event(long id, String title, String description, LocalDate startDateTime, int status, List<RoutePoint> route) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.startDateTime = startDateTime;
+        this.status = status;
+        this.route = route;
+    }
+
+    public Event(long id, String title, String description, LocalDate startDateTime, int status, User owner, List<User> participants, List<RoutePoint> route) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.startDateTime = startDateTime;
+        this.status = status;
+        this.owner = owner;
+        this.participants = participants;
+        this.route = route;
+    }
+
     public long getId() {
         return id;
     }
