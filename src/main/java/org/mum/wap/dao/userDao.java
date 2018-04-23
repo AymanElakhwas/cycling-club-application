@@ -1,5 +1,7 @@
 package org.mum.wap.dao;
 import org.mum.wap.model.User;
+
+import javax.jws.soap.SOAPBinding;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -23,6 +25,8 @@ public class userDao {
     }
 
    static User toUser(ResultSet rs){
+
+       User user =null;
         try {
 
             while (rs.next()) {
@@ -32,14 +36,14 @@ public class userDao {
                 String password = rs.getString("password");
                 String imgUrl = rs.getString("img");
 
-                return new User(id,  name,  username,  password,  imgUrl);
+                user= new User(id,  name,  username,  password,  imgUrl);
             }
             Helper.closeConnection();
         } catch (SQLException e) {
 
             e.printStackTrace();
         }
-        return null;
+        return user;
 
     }
 }

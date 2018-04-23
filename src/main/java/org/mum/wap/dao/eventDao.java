@@ -10,7 +10,7 @@ import java.util.*;
 
 public class eventDao {
 
-    public static Event getEvent_status(int pStatus) {
+    public static List<Event> getEvent_status(int pStatus) {
 
         Helper.makeJDBCConnection();
         ResultSet rs=Helper.getDataFromDB("SELECT * FROM `event` e INNER JOIN event_rout er on e.id = er.event_id and e.status="+pStatus);
@@ -18,9 +18,10 @@ public class eventDao {
         return toEvent(rs);
     }
 
-    private static Event toEvent(ResultSet rs) {
+    private static List<Event> toEvent(ResultSet rs) {
 
         List<RoutePoint> lstRoute=new ArrayList<>();
+        List<Event> lstEvents=new ArrayList<>();
 
         try {
 
@@ -35,9 +36,12 @@ public class eventDao {
                 int point_order = rs.getInt("point_order");
                 lstRoute.add(new RoutePoint(point.split(",")[0],point.split(",")[1],point_order));
 
-                return new Event(id, title, description, start_time, status, current_location, lstRoute);
+                lstEvents.add(new Event(id, title, description, start_time, status, current_location, lstRoute));
             }
+
             Helper.closeConnection();
+            return  lstEvents;
+
         } catch (SQLException e) {
 
             e.printStackTrace();
