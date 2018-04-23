@@ -6,10 +6,15 @@ import org.mum.wap.model.Event;
 import org.mum.wap.model.RoutePoint;
 import org.mum.wap.model.User;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author Ayman Elakhwas
- *
- * This class is used to serialize models to json objects 
+ * <p>
+ * This class is used to serialize models to json objects
  */
 public class JsonSerializer {
     public static JSONObject serialize(User user) {
@@ -46,6 +51,18 @@ public class JsonSerializer {
         return obj;
     }
 
+    public static JSONArray serializeEvents(List<Event> events) {
+        JSONArray arr = new JSONArray();
+        events.forEach(e -> arr.add(serialize(e)));
+        return arr;
+    }
+
+    public static JSONArray serializeUsers(List<User> users) {
+        JSONArray arr = new JSONArray();
+        users.forEach(u -> arr.add(serialize(u)));
+        return arr;
+    }
+
     public static JSONObject serializeWithoutDependency(User user) {
         JSONObject obj = new JSONObject();
         obj.put("id", user.getId());
@@ -61,7 +78,7 @@ public class JsonSerializer {
         obj.put("id", event.getId());
         obj.put("title", event.getTitle());
         obj.put("description", event.getDescription());
-        obj.put("startDateTime", event.getStartDateTime());
+        obj.put("startDateTime", String.valueOf(event.getStartDateTime()));
         obj.put("status", event.getStatus());
 
         JSONArray route = new JSONArray();
@@ -71,16 +88,13 @@ public class JsonSerializer {
     }
 
 
-    /*
-    public static void main(String[] args) {
+    public static JSONArray getMockEventsJson() {
         User user = new User(2, "ahmed", "myUserName", "pass", "images/testimg.jpg");
         List<RoutePoint> route = createTestRoute();
-        Event event = new Event(1,"title","description", LocalDate.now(),1, route);
+        Event event = new Event(1, "title", "description", LocalDate.now(), 1, route);
         event.setOwner(user);
-
-        System.out.println(serialize(user).toJSONString());
-
-        System.out.println(serialize(event).toJSONString());
+        event.setParticipants(Arrays.asList(user, user, user));
+        return serializeEvents(Arrays.asList(event, event, event));
     }
 
     private static List<RoutePoint> createTestRoute() {
@@ -92,7 +106,6 @@ public class JsonSerializer {
         route.add(new RoutePoint("34", "22", 5));
         return route;
     }
-    */
 
 
 }
