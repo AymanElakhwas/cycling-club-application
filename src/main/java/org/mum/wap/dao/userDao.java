@@ -17,7 +17,7 @@ public class userDao {
     public static User getUser(String pUserName,String pPassword) {
 
         Helper.makeJDBCConnection();
-        ResultSet rs=Helper.getDataFromDB("SELECT * from user WHERE username = '"+pUserName+"' AND password= '"+pPassword+"'");
+        ResultSet rs=Helper.getDataFromDB("SELECT * from user WHERE username = lower('"+pUserName.toLowerCase()+"') AND password= '"+pPassword+"'");
 
         return toUser(rs);
     }
