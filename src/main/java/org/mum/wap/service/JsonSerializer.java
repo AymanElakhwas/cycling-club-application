@@ -91,7 +91,7 @@ public class JsonSerializer {
     public static JSONArray getMockEventsJson() {
         User user = new User(2, "ahmed", "myUserName", "pass", "images/testimg.jpg");
         List<RoutePoint> route = createTestRoute();
-        Event event = new Event(1, "title", "description", LocalDate.now(), 1, route);
+        Event event = new Event(1, "title", "description", LocalDate.now(), 1,"location", route);
         event.setOwner(user);
         event.setParticipants(Arrays.asList(user, user, user));
         return serializeEvents(Arrays.asList(event, event, event));
