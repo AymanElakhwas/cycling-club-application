@@ -26,7 +26,7 @@ public class Helper {
 
         try {
 
-            dbConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cycling", "root", "");
+            dbConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cycling", "root", "admin");
             if (dbConn != null) {
                 log("MySQL Connection Success!");
             }
