@@ -11,7 +11,4 @@ public class LoginService {
 
         return (user != null) ? true : false;
     }
-
-
-
 }

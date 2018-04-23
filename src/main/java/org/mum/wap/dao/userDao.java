@@ -17,7 +17,7 @@ public class userDao {
     public static User getUser(String pUserName,String pPassword) {
 
         Helper.makeJDBCConnection();
-        ResultSet rs=Helper.getDataFromDB("SELECT * from user WHERE username = "+pUserName+" AND password= "+pPassword);
+        ResultSet rs=Helper.getDataFromDB("SELECT * from user WHERE username = '"+pUserName+"' AND password= '"+pPassword+"'");
 
         return toUser(rs);
     }
@@ -28,9 +28,9 @@ public class userDao {
             while (rs.next()) {
                 String name = rs.getString("name");
                 String username = rs.getString("username");
-                int id = rs.getInt("EmployeeCount");
+                int id = rs.getInt("ID");
                 String password = rs.getString("password");
-                String imgUrl = rs.getString("imgUrl");
+                String imgUrl = rs.getString("img");
 
                 return new User(id,  name,  username,  password,  imgUrl);
             }
