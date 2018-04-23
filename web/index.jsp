@@ -23,7 +23,7 @@
         <span class="icon is-small username-icon"><i
                 class="fas fa-user-circle"></i></span>
         <h4 class="title is-4 username-txt">User</h4>
-
+        <div class="notifications"></div>
     </div>
 </section>
 <section class="section">
@@ -57,6 +57,9 @@
                 </li>
             </ul>
         </div>
+
+        <jsp:include page="upcomming-events.jsp" />
+
     </div>
 </section>
 
