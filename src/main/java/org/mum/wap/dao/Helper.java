@@ -38,24 +38,19 @@ public class Helper {
 
     }
 
-    public static void addDataToDB(String companyName, String address, int totalEmployee, String webSite) {
+    public static boolean addDataToDB(String pInsertStatement) {
 
         try {
-            String insertQueryStatement = "INSERT  INTO  Employee  VALUES  (?,?,?,?)";
-
-            crunchifyPrepareStat = dbConn.prepareStatement(insertQueryStatement);
-            crunchifyPrepareStat.setString(1, companyName);
-            crunchifyPrepareStat.setString(2, address);
-            crunchifyPrepareStat.setInt(3, totalEmployee);
-            crunchifyPrepareStat.setString(4, webSite);
-
+            crunchifyPrepareStat = dbConn.prepareStatement(pInsertStatement);
             // execute insert SQL statement
             crunchifyPrepareStat.executeUpdate();
-            log(companyName + " added successfully");
+
+            return true;
         } catch (
 
                 SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 

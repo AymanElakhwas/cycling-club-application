@@ -4,13 +4,13 @@ public class RoutePoint {
     private String lon;
     private String lat;
     private int order;
-    private int event_id;
+    private Event event;
 
-    public RoutePoint(String lon, String lat, int order,int event_id) {
+    public RoutePoint(String lon, String lat, int order,Event event) {
         this.lon = lon;
         this.lat = lat;
         this.order = order;
-        this.event_id=event_id;
+        this.event=event;
     }
 
     public String getLon() {
@@ -33,8 +33,8 @@ public class RoutePoint {
         return order;
     }
 
-    public int getEvent_id() {
-        return this.event_id;
+    public Event getEvent() {
+        return this.event;
     }
 
     public void setOrder(int order) {

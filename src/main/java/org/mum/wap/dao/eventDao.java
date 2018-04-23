@@ -19,6 +19,32 @@ public class eventDao {
         return toEvent(rs);
     }
 
+    public static List<Event> getEvents() {
+
+        Helper.makeJDBCConnection();
+        ResultSet rs=Helper.getDataFromDB("SELECT * FROM `event` ");
+
+        return toEvent(rs);
+    }
+
+    public static boolean addEvent(Event pEvent) {
+
+        Helper.makeJDBCConnection();
+
+        String insertStatement = "INSERT  INTO  event  VALUES  ("+pEvent.getTitle()+","+pEvent.getDescription()+","+pEvent.getStartDateTime()+","+pEvent.getStatus()+","+pEvent.getOwner().getId()+")";
+
+        return   Helper.addDataToDB(insertStatement);
+
+    }
+
+
+    public static List<Event> getEvent_Id(int pId) {
+
+        Helper.makeJDBCConnection();
+        ResultSet rs=Helper.getDataFromDB("SELECT * FROM `event` where ID="+pId);
+
+        return toEvent(rs);
+    }
     private static List<Event> toEvent(ResultSet rs) {
 
         List<RoutePoint> lstRoute=new ArrayList<>();
@@ -36,17 +62,21 @@ public class eventDao {
                 String point = rs.getString("point");
                 int point_order = rs.getInt("point_order");
                 int event_id=rs.getInt("event_id");
-                lstRoute.add(new RoutePoint(point.split(",")[0],point.split(",")[1],point_order,event_id));
 
-                lstEvents.add(new Event(id, title, description, start_time, status, current_location));
+                Event event =new Event(id, title, description, start_time, status, current_location);
+                lstEvents.add(event);
+
+                lstRoute.add(new RoutePoint(point.split(",")[0],point.split(",")[1],point_order,event));
+
             }
 
             Helper.closeConnection();
 
             for (Event event:lstEvents) {
-                event.setRoute(lstRoute.stream().filter(x->x.getEvent_id()==event.getId()).collect(Collectors.toList()));
+                event.setRoute(lstRoute.stream().filter(x->x.getEvent().getId()==event.getId()).collect(Collectors.toList()));
             }
-            return  lstEvents;
+
+            return  lstEvents.stream().distinct().collect(Collectors.toList());
 
         } catch (SQLException e) {
 
