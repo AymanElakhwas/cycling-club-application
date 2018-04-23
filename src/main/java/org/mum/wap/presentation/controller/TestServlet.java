@@ -1,4 +1,4 @@
-package org.mum.wap.presentation;
+package org.mum.wap.presentation.controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
