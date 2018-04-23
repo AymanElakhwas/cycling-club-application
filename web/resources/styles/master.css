@@ -15,3 +15,11 @@
     height: 12%;
     padding: 15px 0px;
 }
+
+.error {
+    color: red;
+}
+
+.nodisplay{
+    display: none;
+}

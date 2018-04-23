@@ -26,10 +26,15 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         boolean isValidUser = loginService.checkCredential(username,password);
-        RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher view = null;
 
         if(isValidUser){
+           view = request.getRequestDispatcher("index.jsp");
            view.forward(request,response);
+        }else {
+            request.setAttribute("error","error");
+            view = request.getRequestDispatcher("login.jsp");
+            view.forward(request,response);
         }
     }
 

@@ -4,6 +4,12 @@ import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 import java.io.IOException;
 
+/**
+ * @Author Elham
+ * @Date 04/23/2018
+ * This is Custom Tag Class that provide INPUT element in HTML and it recieve and create all input attributes
+ *
+ */
 public class InputCustomTag extends SimpleTagSupport {
 
 

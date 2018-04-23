@@ -10,10 +10,14 @@
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link rel="stylesheet" href="resources/styles/master.css">
 </head>
 <body>
 
 <form action="/Login" method="Post">
+    <cyclist:ERROR text="Your UserName or Password is Wrong" htmlClass="${error!=null?error:'nodisplay'}"/>
     <cyclist:Input type="text" name="username" autocomplete="true" required="true"/>
     <cyclist:Input type="password" name="password" autocomplete="false" required="true"/>
     <cyclist:Input type="submit" value="Submit"/>
