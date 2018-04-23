@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class eventDao {
 
@@ -34,12 +35,17 @@ public class eventDao {
                 String current_location = rs.getString("current_location");
                 String point = rs.getString("point");
                 int point_order = rs.getInt("point_order");
-                lstRoute.add(new RoutePoint(point.split(",")[0],point.split(",")[1],point_order));
+                int event_id=rs.getInt("event_id");
+                lstRoute.add(new RoutePoint(point.split(",")[0],point.split(",")[1],point_order,event_id));
 
-                lstEvents.add(new Event(id, title, description, start_time, status, current_location, lstRoute));
+                lstEvents.add(new Event(id, title, description, start_time, status, current_location));
             }
 
             Helper.closeConnection();
+
+            for (Event event:lstEvents) {
+                event.setRoute(lstRoute.stream().filter(x->x.getEvent_id()==event.getId()).collect(Collectors.toList()));
+            }
             return  lstEvents;
 
         } catch (SQLException e) {
