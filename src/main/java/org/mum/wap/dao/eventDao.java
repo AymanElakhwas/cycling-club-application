@@ -30,11 +30,12 @@ public class eventDao {
                 int id = rs.getInt("ID");
                 String description = rs.getString("description");
                 String title = rs.getString("title");
+                String current_location = rs.getString("current_location");
                 String point = rs.getString("point");
                 int point_order = rs.getInt("point_order");
                 lstRoute.add(new RoutePoint(point.split(",")[0],point.split(",")[1],point_order));
 
-                return new Event(id, title, description, start_time, status, lstRoute);
+                return new Event(id, title, description, start_time, status, current_location, lstRoute);
             }
             Helper.closeConnection();
         } catch (SQLException e) {

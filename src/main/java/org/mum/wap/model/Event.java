@@ -10,6 +10,7 @@ public class Event {
     private String description;
     private LocalDate startDateTime;
     private int status;
+    private String current_location;
     private User owner;
     private List<User> participants = new ArrayList<>();
     private List<RoutePoint> route = new ArrayList<>();
@@ -17,13 +18,14 @@ public class Event {
     public Event() {
     }
 
-    public Event(long id, String title, String description, LocalDate startDateTime, int status, List<RoutePoint> route) {
+    public Event(long id, String title, String description, LocalDate startDateTime, int status,String current_location, List<RoutePoint> route) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.startDateTime = startDateTime;
         this.status = status;
         this.route = route;
+        this.current_location=current_location;
     }
 
     public Event(long id, String title, String description, LocalDate startDateTime, int status, User owner, List<User> participants, List<RoutePoint> route) {
@@ -41,6 +43,7 @@ public class Event {
         return id;
     }
 
+    public  String getCurrent_location(){return this.current_location;};
     public void setId(long id) {
         this.id = id;
     }
