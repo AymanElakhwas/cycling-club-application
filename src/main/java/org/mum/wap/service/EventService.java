@@ -17,7 +17,7 @@ public class EventService {
     }
 
     public void joinEvent(long eventId, long userId) {
-        EventDao.joinEvent(eventId,userId);
+        EventDao.joinEvent(eventId, userId);
     }
 
     public JSONArray getLiveEvents() {
@@ -38,8 +38,18 @@ public class EventService {
         return JsonSerializer.serializeEvents(events);
     }
 
-    //Abdelrahman
-    public List<RoutePoint> getRoutePoints(String pJsonStr ) {
+    public void startEvent(long eventId) {
+    }
+
+    public void raiseFlagForEvent(long eventId) {
+    }
+
+    public void finishEvent(long eventId) {
+
+
+    }
+
+    public List<RoutePoint> getRoutePoints(JSONObject jsonObject) {
 
         return JsonDeserializer.DeserializeRoutePoints(pJsonStr);
     }
