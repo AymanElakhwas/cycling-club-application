@@ -35,17 +35,3 @@
 .enrolled-event-btn {
     visibility: hidden;
 }
-
-.add-event-data {
-
-    width: 50%;
-    border: solid;
-    float: right;
-}
-
-.add-event-map {
-    float: right;
-    width: 50%;
-    border: solid;
-
-}

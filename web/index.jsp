@@ -17,6 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="resources/styles/master.css">
+    <link rel="stylesheet" href="resources/styles/abdel.css">
     <script src="resources/scripts/master-script.js"></script>
     <script src="resources/scripts/upcoming-script.js"></script>
     <script src="resources/scripts/live-script.js"></script>
@@ -71,7 +72,7 @@
         <jsp:include page="upcoming-events.jsp" />
         <jsp:include page="live-events.jsp" />
         <jsp:include page="enrolled-events.jsp" />
-        <jsp:include page="myride-events.jsp" />
+        <!--jsp:include page="my-events.jsp" /-->
         <!--jsp:include page="add-event.jsp" /-->
     </div>
 </section>
