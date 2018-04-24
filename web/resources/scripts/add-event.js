@@ -82,6 +82,8 @@ function setMapOnAll(map) {
 
             let title=$("#txtTitle").val();
             let date=$("#dtStart").val();
+                let description=$("#txtDescription").val();
+
 
             if(!title){
                 $("#lblTitle").css("color","red");
@@ -103,9 +105,16 @@ function setMapOnAll(map) {
                 $("#lblMapError").text("Pls click Map to Select Path").css("color","red");
             }
 
+            let points=[];
+            for(let i=0;i<markers.length;i++){
+
+                points.push( markers[0].position.lat()+","+markers[0].position.lng());
+            }
+
+
             if(title&&date&&markers.length>1) {
 
-                $.post( "test.php", { name: "John", time: "2pm" } ) .done(function() {
+                $.post( "http://localhost:8080/AddEvent", { "title": title, "date": date,"description":description,"markers":points } ) .done(function() {
                     alert( "second success" );
                 })
                     .fail(function() {

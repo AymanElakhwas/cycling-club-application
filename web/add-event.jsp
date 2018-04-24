@@ -32,7 +32,7 @@
             <div class="field">
                 <label class="label">description</label>
                 <div class="control">
-                    <textarea class="textarea" placeholder="e.g. Race Details"></textarea>
+                    <textarea class="textarea" placeholder="e.g. Race Details" id="txtDescription"></textarea>
                 </div>
             </div>
 
