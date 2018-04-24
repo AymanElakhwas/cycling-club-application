@@ -21,6 +21,7 @@
     <script src="resources/scripts/upcoming-script.js"></script>
     <script src="resources/scripts/live-script.js"></script>
     <script src="resources/scripts/enrolled-script.js"></script>
+    <script src="resources/scripts/myrides-script.js"></script>
     <script src="resources/scripts/notification.js"></script>
     <script src="resources/scripts/add-event.js"></script>
 
@@ -70,7 +71,7 @@
         <jsp:include page="upcoming-events.jsp" />
         <jsp:include page="live-events.jsp" />
         <jsp:include page="enrolled-events.jsp" />
-        <!--jsp:include page="my-events.jsp" /-->
+        <jsp:include page="myride-events.jsp" />
         <!--jsp:include page="add-event.jsp" /-->
     </div>
 </section>

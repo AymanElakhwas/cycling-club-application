@@ -24,17 +24,11 @@
     display: none;
 }
 
-.upcoming-pnl {
+.upcoming-pnl, .live-pnl, .enrolled-pnl, .myrides-pnl {
     width: 55%;
 }
 
-.live-pnl {
-    width: 55%;
-    display: none;
-}
-
-.enrolled-pnl {
-    width: 55%;
+.live-pnl, .enrolled-pnl, .myrides-pnl {
     display: none;
 }
 
