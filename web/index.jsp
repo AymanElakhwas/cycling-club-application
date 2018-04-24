@@ -21,7 +21,7 @@
     <script src="resources/scripts/upcoming-script.js"></script>
     <script src="resources/scripts/live-script.js"></script>
     <script src="resources/scripts/notification.js"></script>
-
+    <link rel="stylesheet" href="resources/styles/master.css">
 </head>
 <body>
 <section class="hero is-dark">
@@ -29,7 +29,8 @@
         <img src="resources/images/cycling-logo-white-small.png" class="logo-img">
         <span class="icon is-small username-icon"><i class="fas fa-user-circle"></i></span>
         <span class="title is-4 username-txt">User</span>
-        <span id="notifications" class="notifications"><i class="far fa-flag"></i></span>
+        <span id="notifications" class="notifications"><i class="far fa-flag"></i>
+        </span><nav class="panel notifications-pnl"></nav>
     </div>
 </section>
 <section class="section">
