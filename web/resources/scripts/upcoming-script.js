@@ -26,7 +26,7 @@ $(function () {
 
         events.forEach(event => {
             if (isEnrolled(user, event) || isOwner(user, event)) {
-                btnClass = "is-danger";
+                btnClass = "is-warning";
                 btnVal = "Enrolled";
             } else {
                 btnClass = "is-primary";
@@ -52,9 +52,9 @@ $(function () {
         const btn = $(this);
         const eventId = btn.attr("data-event-id");
         event.stopPropagation();
-        if (!btn.hasClass("is-danger"))
+        if (!btn.hasClass("is-warning"))
             $.get("JoinUpcomingEvent", {"eventId": eventId}).done(function () {
-                btn.removeClass("is-primary").addClass("is-danger").val("Enrolled");
+                btn.removeClass("is-primary").addClass("is-warning").val("Enrolled");
             });
     });
 });
