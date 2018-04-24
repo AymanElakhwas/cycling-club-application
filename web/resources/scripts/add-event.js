@@ -65,7 +65,9 @@ function setMapOnAll(map) {
     $(function () {
 
 
-
+        $("#btnCreatEvent").click(function () {
+            alert("Clicked")
+        });
 
     });
 

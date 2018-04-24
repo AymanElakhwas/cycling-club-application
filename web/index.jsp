@@ -39,7 +39,7 @@
 </section>
 <section class="section">
     <div class="container">
-        <nav class="level">
+        <nav class="level" id="navMain">
             <!-- Left side -->
             <div class="level-left">
                 <div class="level-item">
