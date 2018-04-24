@@ -28,8 +28,8 @@ public class AddEvent extends HttpServlet {
         EventService es = new EventService();
         List<RoutePoint> lstPoints=  es.getRoutePoints(markers);
 
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-ddThh:mm");
-  //      LocalDateTime dateTime = LocalDateTime.parse(date, formatter);
+
+
 
         LocalDateTime result= LocalDateTime.now();
 
