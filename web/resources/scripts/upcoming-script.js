@@ -8,6 +8,7 @@ $(function () {
         event.participants.forEach(u => {
             if (u.id == user.id) return true;
         });
+        return false;
     }
 
     const isOwner = function (user, event) {
@@ -18,14 +19,19 @@ $(function () {
         const events = data["events"];
         const user = data["user"];
 
+        console.log(data);
+
         let btnClass = "is-primary";
         let btnVal = "Join";
 
         events.forEach(event => {
-            // if (isEnrolled(user, event) || isOwner(user, event)) {
-            //     btnClass = "is-danger";
-            //     btnVal = "Enrolled";
-            // }
+            if (isEnrolled(user, event) || isOwner(user, event)) {
+                btnClass = "is-danger";
+                btnVal = "Enrolled";
+            } else {
+                btnClass = "is-primary";
+                btnVal = "Join";
+            }
 
             const eventnumber = event.id;
             const elem = "<a class='panel-block upcoming-event-record' data-event-id='" + eventnumber + "'><div class='container'><div class='level'><div class='level-left'><div class='level-item'><span class='panel-icon'><i class='far fa-calendar-alt'></i></span>" + event.title + " "
