@@ -34,9 +34,9 @@
     <div class="container">
         <div class="columns">
             <div class="column is-9">
-                <img src="resources/images/cycling-logo-white-small.png" class="logo-img">
+                <img src="resources/images/cycling-logo-white-small.png" class="logo-img" width="150">
             </div>
-            <div class="column notifications">
+            <div class="column have-top-padding notifications">
                 <span id="notifications" class="icon is-large notifications-flag" title="no emercengy"><i class="fas fa-flag fa-2x"></i></span>
                 <div class="dropdown is-hoverable nodisplay">
                     <div class="dropdown-trigger">
@@ -50,10 +50,10 @@
                     </div>
                 </div>
             </div>
-            <div class="column">
+            <div class="column have-top-padding ">
                 <span class="icon is-large">User</span>
             </div>
-            <div class="column">
+            <div class="column have-top-padding ">
                 <span class="icon is-large"><i class="fas fa-user-circle fa-2x"></i></span>
             </div>
         </div>

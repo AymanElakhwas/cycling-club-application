@@ -15,7 +15,7 @@ public class EventService {
     }
 
     public void joinEvent(long eventId, long userId) {
-        //TODO implement join event
+
     }
 
     public JSONArray getLiveEvents() {
