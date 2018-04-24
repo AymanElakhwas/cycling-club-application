@@ -85,7 +85,7 @@ public class EventDao {
         Helper helper = new Helper();
         helper.makeJDBCConnection();
 
-        String insertStatement = "INSERT  INTO  event (title, description, start_time,status,created_by,current_location)  VALUES  ("+title+","+description+","+startDateTime+","+status+","+created_by+", "+currentLocation+")";
+        String insertStatement = "INSERT  INTO  event (title, description, start_time,status,created_by,current_location)  VALUES  ('"+title+"','"+description+"','"+startDateTime+"',"+status+","+created_by+", '"+currentLocation+"')";
 
         return helper.addDataToDB(insertStatement);
 
