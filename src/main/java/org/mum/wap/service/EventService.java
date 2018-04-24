@@ -9,5 +9,9 @@ import org.mum.wap.dao.EventDao;
 public class EventService {
     public JSONArray getUpcomingEvents() {
         return JsonSerializer.serializeEvents(EventDao.getEvents());
+        //return JsonSerializer.getMockEventsJson();
+    }
+
+    public void joinEvent(long eventId, long userId) {
     }
 }
