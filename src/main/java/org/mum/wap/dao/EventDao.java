@@ -22,7 +22,7 @@ public class EventDao {
     public static List<Event> getEvents() {
 
         Helper.makeJDBCConnection();
-        ResultSet rs=Helper.getDataFromDB("SELECT * FROM `event` ");
+        ResultSet rs=Helper.getDataFromDB("SELECT * FROM `event` e INNER JOIN event_rout er on e.id = er.event_id");
 
         return toEvent(rs);
     }
