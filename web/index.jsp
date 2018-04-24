@@ -39,41 +39,54 @@
 </section>
 <section class="section">
     <div class="container">
+        <nav class="level">
+            <!-- Left side -->
+            <div class="level-left">
+                <div class="level-item">
+                    <a class="button is-success">
+                    <span class="icon is-small"><i class="fas fa-flag-checkered"></i>
+                    </span><span>Create Event</span></a>
+                </div>
+            </div>
+            <div class="level-right">
+                <div class="level-item">
+                    <div class="tabs is-right">
+                        <ul>
+                            <li id="upcoming-tab" class="is-active navigation-tab">
+                                <a>
+                                    <span class="icon is-small"><i class="far fa-calendar-alt"></i></span>
+                                    <span>Upcoming</span>
+                                </a>
+                            </li>
+                            <li id="live-tab" class="navigation-tab">
+                                <a>
+                                    <span class="icon is-small"><i class="fas fa-video"></i></span>
+                                    <span>Live</span>
+                                </a>
+                            </li>
+                            <li id="enrolled-tab" class="navigation-tab">
+                                <a>
+                                    <span class="icon is-small"><i class="far fa-clock"></i></span>
+                                    <span>Enrolled Rides</span>
+                                </a>
+                            </li>
+                            <li id="myrides-tab" class="navigation-tab">
+                                <a>
+                                    <span class="icon is-small"><i class="fas fa-flag-checkered"></i></span>
+                                    <span>My Rides</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-        <div class="tabs is-right">
-            <ul>
-                <li id="upcoming-tab" class="is-active navigation-tab">
-                    <a>
-                        <span class="icon is-small"><i class="far fa-calendar-alt"></i></span>
-                        <span>Upcoming</span>
-                    </a>
-                </li>
-                <li id="live-tab" class="navigation-tab">
-                    <a>
-                        <span class="icon is-small"><i class="fas fa-video"></i></span>
-                        <span>Live</span>
-                    </a>
-                </li>
-                <li id="enrolled-tab" class="navigation-tab">
-                    <a>
-                        <span class="icon is-small"><i class="far fa-clock"></i></span>
-                        <span>Enrolled Rides</span>
-                    </a>
-                </li>
-                <li id="myrides-tab" class="navigation-tab">
-                    <a>
-                        <span class="icon is-small"><i class="fas fa-flag-checkered"></i></span>
-                        <span>My Rides</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <jsp:include page="upcoming-events.jsp" />
-        <jsp:include page="live-events.jsp" />
-        <jsp:include page="enrolled-events.jsp" />
-        <!--jsp:include page="my-events.jsp" /-->
-        <!--jsp:include page="add-event.jsp" /-->
+        <jsp:include page="upcoming-events.jsp"/>
+        <jsp:include page="live-events.jsp"/>
+        <jsp:include page="enrolled-events.jsp"/>
+        <jsp:include page="myride-events.jsp"/>
+        <jsp:include page="add-event.jsp"/>
     </div>
 </section>
 
