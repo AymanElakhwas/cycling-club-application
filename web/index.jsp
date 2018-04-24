@@ -43,7 +43,7 @@
             <!-- Left side -->
             <div class="level-left">
                 <div class="level-item">
-                    <a class="button is-success">
+                    <a class="button is-success" id="btnCreatEvent">
                     <span class="icon is-small"><i class="fas fa-flag-checkered"></i>
                     </span><span>Create Event</span></a>
                 </div>
