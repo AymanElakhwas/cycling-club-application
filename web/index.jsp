@@ -17,16 +17,16 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="resources/scripts/upcoming-script.js"></script>
+    <script src="resources/scripts/notification.js"></script>
     <link rel="stylesheet" href="resources/styles/master.css">
 </head>
 <body>
 <section class="hero is-dark">
     <div class="container">
         <img src="resources/images/cycling-logo-white-small.png" class="logo-img">
-        <span class="icon is-small username-icon"><i
-                class="fas fa-user-circle"></i></span>
-        <h4 class="title is-4 username-txt">User</h4>
-        <div class="notifications"></div>
+        <span class="icon is-small username-icon"><i class="fas fa-user-circle"></i></span>
+        <span class="title is-4 username-txt">User</span>
+        <span id="notifications" class="notifications"><i class="far fa-flag"></i></span>
     </div>
 </section>
 <section class="section">
