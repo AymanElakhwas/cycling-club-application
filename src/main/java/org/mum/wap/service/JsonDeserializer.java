@@ -9,13 +9,11 @@ import java.util.Iterator;
 
 import java.util.List;
 
-
 /**
  *
  * @author Abdelrahman
  *
  */
-
 
 public class JsonDeserializer {
 
@@ -25,28 +23,17 @@ public class JsonDeserializer {
 
         JSONParser parser = new JSONParser();
         try {
-
             JSONObject jsonObject = (JSONObject) parser.parse(pJsonStr);
-
-
             JSONArray lang= (JSONArray) jsonObject.get("RoutePoints");
-
             Iterator i = lang.iterator();
 
             while (i.hasNext()) {
-
                 JSONObject innerObj = (JSONObject) i.next();
-
-                System.out.println("language "+ innerObj.get("lat") +
-                        " with level " + innerObj.get("long"));
-
+                lstRoutPoints.add(new RoutePoint(innerObj.get("long").toString(),innerObj.get("lat").toString(),(int)innerObj.get("order"),null));
             }
-
-
         } catch (ParseException e) {
             e.printStackTrace();
         }
         return lstRoutPoints;
-
     }
 }
