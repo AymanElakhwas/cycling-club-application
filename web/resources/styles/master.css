@@ -20,10 +20,15 @@
     color: red;
 }
 
-.nodisplay{
+.nodisplay {
     display: none;
 }
 
-.upcomming-pnl {
+.upcoming-pnl {
     width: 55%;
+}
+
+.live-pnl {
+    width: 55%;
+    display: none;
 }

@@ -4,29 +4,36 @@ import org.mum.wap.model.User;
 import javax.jws.soap.SOAPBinding;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDao {
 
 
     public static User getUser(int pId) {
+        Helper helper=new Helper();
 
-        Helper.makeJDBCConnection();
-        ResultSet rs=Helper.getDataFromDB("SELECT * from user WHERE id = "+pId);
+        ResultSet rs=helper.getDataFromDB("SELECT * from user WHERE id = "+pId);
 
-        return toUser(rs);
+        helper.closeConnection();
+        return toUser(rs).get(0);
     }
 
     public static User getUser(String pUserName,String pPassword) {
 
-        Helper.makeJDBCConnection();
-        ResultSet rs=Helper.getDataFromDB("SELECT * from user WHERE username = lower('"+pUserName.toLowerCase()+"') AND password= '"+pPassword+"'");
+        Helper helper=new Helper();
+        helper.makeJDBCConnection();
+        ResultSet rs=helper.getDataFromDB("SELECT * from user WHERE username = lower('"+pUserName.toLowerCase()+"') AND password= '"+pPassword+"'");
 
-        return toUser(rs);
+
+        User user= toUser(rs).get(0);
+        helper.closeConnection();
+        return user;
     }
 
-   static User toUser(ResultSet rs){
+   static List<User> toUser(ResultSet rs){
 
-       User user =null;
+       List<User> lstUser =new ArrayList<>();
         try {
 
             while (rs.next()) {
@@ -36,14 +43,14 @@ public class UserDao {
                 String password = rs.getString("password");
                 String imgUrl = rs.getString("img");
 
-                user= new User(id,  name,  username,  password,  imgUrl);
+                lstUser.add(new User(id,  name,  username,  password,  imgUrl));
             }
-            Helper.closeConnection();
+
         } catch (SQLException e) {
 
             e.printStackTrace();
         }
-        return user;
+        return lstUser;
 
     }
 }

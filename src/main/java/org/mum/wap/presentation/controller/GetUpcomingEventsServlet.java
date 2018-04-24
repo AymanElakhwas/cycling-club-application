@@ -1,7 +1,10 @@
 package org.mum.wap.presentation.controller;
 
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.mum.wap.model.User;
 import org.mum.wap.service.EventService;
+import org.mum.wap.service.JsonSerializer;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,11 +25,17 @@ public class GetUpcomingEventsServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EventService es = new EventService();
-        JSONArray results = es.getUpcomingEvents();
+
+        JSONArray events = es.getUpcomingEvents();
+        JSONObject result = new JSONObject();
+        User user = (User) request.getSession().getAttribute("user");
+        result.put("user", JsonSerializer.serialize(user));
+        result.put("events",events);
+
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
-        out.print(results.toJSONString());
+        out.print(result.toJSONString());
         out.flush();
     }
 }

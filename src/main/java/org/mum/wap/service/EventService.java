@@ -2,6 +2,9 @@ package org.mum.wap.service;
 
 import org.json.simple.JSONArray;
 import org.mum.wap.dao.EventDao;
+import org.mum.wap.model.Event;
+
+import java.util.List;
 
 /**
  * @author Ayman Elakhwas
@@ -9,9 +12,15 @@ import org.mum.wap.dao.EventDao;
 public class EventService {
     public JSONArray getUpcomingEvents() {
         return JsonSerializer.serializeEvents(EventDao.getEvents());
-        //return JsonSerializer.getMockEventsJson();
     }
 
     public void joinEvent(long eventId, long userId) {
+        //TODO implement join event
+    }
+
+    public JSONArray getLiveEvents() {
+        List<Event> events = EventDao.getEvents();
+        events.remove(0);
+        return JsonSerializer.serializeEvents(events);
     }
 }

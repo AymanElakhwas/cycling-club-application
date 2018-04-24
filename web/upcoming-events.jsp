@@ -1,8 +1,6 @@
 <!-- @author Ayman Elakhwas-->
-<nav class="panel upcomming-pnl">
+<nav class="panel upcoming-pnl view-panel">
     <p class="panel-heading">
         Upcoming Rides
     </p>
-
-
 </nav>
