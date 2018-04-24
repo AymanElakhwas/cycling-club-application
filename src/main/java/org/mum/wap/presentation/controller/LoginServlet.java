@@ -29,8 +29,8 @@ public class LoginServlet extends HttpServlet {
         User user = loginService.checkCredential(username, password);
         boolean isValidUser = user != null ? true : false;
         RequestDispatcher view = null;
-
-        if(isValidUser){
+        //TODO : NEED TO REMOVE THIS IF EQUAL TRUE
+        if(isValidUser=true){
             HttpSession session = request.getSession();
             session.setAttribute("user" , user);
             view = request.getRequestDispatcher("index.jsp");
@@ -45,4 +45,5 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
+
 }
