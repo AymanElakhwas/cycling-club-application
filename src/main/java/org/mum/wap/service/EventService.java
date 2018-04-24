@@ -21,21 +21,16 @@ public class EventService {
     }
 
     public JSONArray getLiveEvents() {
-        List<Event> events = EventDao.getEvents();
-        events.remove(0);
+        List<Event> events = EventDao.getEventBystatus(1);
         return JsonSerializer.serializeEvents(events);
     }
 
     public JSONArray getEnrolledEvents(long id) {
-        List<Event> events = EventDao.getEvents();
-        events.remove(1);
-        events.remove(0);
-        return JsonSerializer.serializeEvents(events);
+        return JsonSerializer.getMockEventsJson();
     }
 
     public JSONArray getMyRideEvents() {
-        List<Event> events = EventDao.getEvents();
-        return JsonSerializer.serializeEvents(events);
+        return JsonSerializer.getMockEventsJson();
     }
 
     public void startEvent(long eventId) {

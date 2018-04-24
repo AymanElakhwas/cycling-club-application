@@ -30,7 +30,7 @@ public class NotificationService {
 //        private List<User> participants = new ArrayList<>();
 //        private List<RoutePoint> route = new ArrayList<>();
 
-        List<Event> eventlist = EventDao.getEvent_status(2);
+        List<Event> eventlist = EventDao.getEventBystatus(2);
         JSONObject[] jsonEventList = new JSONObject[eventlist.size()];
         int count = 0;
         for(Event event1: eventlist){
