@@ -7,6 +7,10 @@
     display: none;
 }
 
+.have-top-padding {
+    padding: 4% 0 0 0;
+}
+
 .upcoming-pnl, .live-pnl, .enrolled-pnl, .myrides-pnl {
     width: 55%;
 }
@@ -20,10 +24,14 @@
 }
 
 .start-my-event-btn, .finish-my-event-btn, .enrolled-event-btn,
-.resume-my-event-btn, .completed-my-event-btn,
+.resume-my-event-btn, .completed-my-event-btn, .flag-my-event-btn,
 .join-upcoming-event-btn, .join-live-event-btn {
     width: 100px;
     height: 30px;
     padding-top: 0px;
     padding-bottom: 0px;
+}
+
+img.logo-img {
+    margin:15px;
 }

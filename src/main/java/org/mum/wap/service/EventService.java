@@ -17,7 +17,7 @@ public class EventService {
     }
 
     public void joinEvent(long eventId, long userId) {
-        //TODO implement join event
+        EventDao.joinEvent(eventId,userId);
     }
 
     public JSONArray getLiveEvents() {
