@@ -17,6 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="resources/styles/master.css">
+    <link rel="stylesheet" href="resources/styles/notifications.css">
     <link rel="stylesheet" href="resources/styles/abdel.css">
     <script src="resources/scripts/master-script.js"></script>
     <script src="resources/scripts/upcoming-script.js"></script>
@@ -31,10 +32,31 @@
 <body>
 <section class="hero is-dark">
     <div class="container">
-        <img src="resources/images/cycling-logo-white-small.png" class="logo-img">
-        <span class="icon is-small username-icon"><i class="fas fa-user-circle"></i></span>
-        <span class="title is-4 username-txt">User</span>
-        <span id="notifications" class="notifications"><i class="far fa-flag"></i></span>
+        <div class="columns">
+            <div class="column is-9">
+                <img src="resources/images/cycling-logo-white-small.png" class="logo-img">
+            </div>
+            <div class="column notifications">
+                <span id="notifications" class="icon is-large notifications-flag" title="no emercengy"><i class="fas fa-flag fa-2x"></i></span>
+                <div class="dropdown is-hoverable nodisplay">
+                    <div class="dropdown-trigger">
+                        <span class="icon is-small"><i class="fas fa-angle-down" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                        <div class="dropdown-content notification-item">
+                            <!--<div class="dropdown-item">-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <span class="icon is-large">User</span>
+            </div>
+            <div class="column">
+                <span class="icon is-large"><i class="fas fa-user-circle fa-2x"></i></span>
+            </div>
+        </div>
     </div>
 </section>
 <section class="section">

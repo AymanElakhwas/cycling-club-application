@@ -66,8 +66,61 @@ function setMapOnAll(map) {
 
 
         $("#btnCreatEvent").click(function () {
-            alert("Clicked")
+
+            $("#navMain").hide();
+            $(".view-panel").hide();
+            $("#dvAddEventContainer").show();
+
         });
+
+
+        $("#btnDeletePath").click(function () {
+            deleteMarkers()
+        });
+
+            $("#btnSaveEvent").click(function () {
+
+            let title=$("#txtTitle").val();
+            let date=$("#dtStart").val();
+
+            if(!title){
+                $("#lblTitle").css("color","red");
+            }
+            else {
+                $("#lblTitle").css("color","black");
+            }
+            if(!date){
+                $("#lblEventDate").css("color","red");
+            }
+            else {
+                $("#lblEventDate").css("color","black");
+            }
+            if(markers.length>1){
+
+                $("#lblMapError").text("").css("color","black");
+            }
+            else {
+                $("#lblMapError").text("Pls click Map to Select Path").css("color","red");
+            }
+
+            if(title&&date&&markers.length>1) {
+
+                $.post( "test.php", { name: "John", time: "2pm" } ) .done(function() {
+                    alert( "second success" );
+                })
+                    .fail(function() {
+                        alert( "error" );
+                    });
+
+
+                $("#navMain").show();
+                $(".view-panel").first().show();
+                $("#dvAddEventContainer").hide();
+            }
+        });
+
+
+
 
     });
 

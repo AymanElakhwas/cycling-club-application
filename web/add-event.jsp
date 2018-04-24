@@ -1,27 +1,31 @@
 <!-- @author Abdelrahman-->
 
-<div id="dvAddEvent" style="display: none">
+<div id="dvAddEventContainer" style="display: none">
+
+    <p class="panel-heading">
+        Create Event
+    </p>
 
     <div class="add-event-map">
         <div id="floating-panel">
-
-            <a class="button is-danger">Delete Path</a>
+            <a class="button is-danger" id="btnDeletePath">Delete Path</a>
         </div>
         <div id="map"></div>
+        <label id="lblMapError" style="color: red;"></label>
     </div>
 
         <div class="add-event-data">
             <div class="field">
-                <label class="label">title</label>
+                <label class="label" id="lblTitle">title</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Text input" id="txtTitle" required>
+                    <input class="input" type="text" placeholder="Event Title" id="txtTitle" required>
                 </div>
             </div>
 
             <div class="field">
-                <label class="label">start date</label>
+                <label class="label" id="lblEventDate">start date</label>
                 <div class="control">
-                    <input class="input" type="datetime-local" placeholder="Text input" id="dtStart" required>
+                    <input class="input" type="datetime-local" id="dtStart" required>
                 </div>
             </div>
 
@@ -33,7 +37,8 @@
             </div>
 
                 <div style="text-align: right;">
-                    <a class="button is-success" >
+
+                    <a class="button is-success" id="btnSaveEvent">
                     <span class="icon is-small">
                          <i class="fas fa-check"></i>
                     </span>
