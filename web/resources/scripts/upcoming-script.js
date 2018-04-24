@@ -4,11 +4,18 @@
 
 $(function () {
 
-    $.get("GetUpcomingEvents").done(function (events) {
+    $.get("GetUpcomingEvents").done(function (data) {
+        const events = data["events"];
+        const user = data["user"];
+
+        const btnClass = "is-primary";
+        const btnVal = "Join";
+
         events.forEach(event => {
             const eventnumber = event.id;
+
             const elem = "<a class='panel-block upcoming-event-record' data-event-id='" + eventnumber + "'><div class='container'><div class='level'><div class='level-left'><div class='level-item'><span class='panel-icon'><i class='far fa-calendar-alt'></i></span>" + event.title + " "
-                + event.dateTime + "</div></div><div class='level-right'><div class='level-item'><input type='button' value='Join' class='button is-primary join-upcoming-event-btn' data-event-id='" + eventnumber + "'/></div></div></div></div></a>";
+                + event.dateTime + "</div></div><div class='level-right'><div class='level-item'><input type='button' value='" + btnVal + "' class='button " + btnClass + " join-upcoming-event-btn' data-event-id='" + eventnumber + "'/></div></div></div></div></a>";
             $(".upcoming-pnl").append(elem);
         });
     });

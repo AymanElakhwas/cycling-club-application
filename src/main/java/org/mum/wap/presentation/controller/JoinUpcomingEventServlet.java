@@ -1,6 +1,7 @@
 package org.mum.wap.presentation.controller;
 
 import org.json.simple.JSONArray;
+import org.mum.wap.model.User;
 import org.mum.wap.service.EventService;
 
 import javax.servlet.ServletException;
@@ -22,7 +23,7 @@ public class JoinUpcomingEventServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         long eventId = Long.parseLong(request.getParameter("eventId"));
-        long userId = (long) request.getSession().getAttribute("userId");
+        long userId = ((User) request.getSession().getAttribute("user")).getId();
 
         EventService eventService = new EventService();
         eventService.joinEvent(eventId, userId);
