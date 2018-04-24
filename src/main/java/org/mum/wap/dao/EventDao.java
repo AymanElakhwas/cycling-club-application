@@ -12,6 +12,9 @@ import java.util.stream.Collectors;
 
 public class EventDao {
 
+    public static void insertEvent(){
+//        Helper.makeJDBCConnection();
+    }
     public static List<Event> getEvent_status(int pStatus) {
 
         Helper helper=new Helper();
@@ -125,5 +128,12 @@ public class EventDao {
             e.printStackTrace();
         }
         return null;
+    }
+
+
+    public static void joinEvent(long eventId, long userId){
+        Helper helper=new Helper();
+        helper.makeJDBCConnection();
+        String insertStatement = "INSERT  INTO  user_event  (user_id , event_id ) VALUES ("+userId+","+eventId+");" ;
     }
 }
