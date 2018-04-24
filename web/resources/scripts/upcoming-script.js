@@ -16,14 +16,15 @@ $(function () {
     $(document).on("click", "a.upcoming-event-record", function (event) {
         const eventId = $(this).attr("data-event-id")
         //TODO add logic
-        console.log("upcoming-event-record "+eventId);
+        console.log("upcoming-event-record " + eventId);
     });
 
     $(document).on("click", "input.join-upcoming-event-btn", function (event) {
-        const eventId = $(this).attr("data-event-id");
+        const btn = $(this);
+        const eventId = btn.attr("data-event-id");
         event.stopPropagation();
-        //TODO add logic
-        console.log("join-upcoming-event-btn "+eventId);
+        $.get("JoinUpcomingEvent",{"eventId":eventId}).done(function () {
+            btn.hide();
+        });
     });
-
 });

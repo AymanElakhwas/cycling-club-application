@@ -5,10 +5,10 @@ import org.mum.wap.model.User;
 
 public class LoginService {
 
-    public boolean checkCredential(String username, String password) {
+    public User checkCredential(String username, String password) {
 
         User user = UserDao.getUser(username, password);
 
-        return (user != null) ? true : false;
+        return user;
     }
 }
