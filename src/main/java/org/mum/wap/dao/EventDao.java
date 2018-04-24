@@ -14,16 +14,18 @@ public class EventDao {
 
     public static List<Event> getEvent_status(int pStatus) {
 
-        Helper.makeJDBCConnection();
-        ResultSet rs=Helper.getDataFromDB("SELECT * FROM `event` e INNER JOIN event_rout er on e.id = er.event_id and e.status="+pStatus);
+        Helper helper=new Helper();
+        helper.makeJDBCConnection();
+        ResultSet rs=helper.getDataFromDB("SELECT * FROM `event` e INNER JOIN event_rout er on e.id = er.event_id and e.status="+pStatus);
 
         return toEvent(rs);
     }
 
     public static List<Event> getEvents() {
 
-        Helper.makeJDBCConnection();
-        ResultSet rs=Helper.getDataFromDB("SELECT * FROM `event` ");
+        Helper helper=new Helper();
+        helper.makeJDBCConnection();
+        ResultSet rs=helper.getDataFromDB("SELECT * FROM `event` ");
         List<Event> lstEvents=toEvent(rs);
 
         String sql="";
@@ -31,13 +33,13 @@ public class EventDao {
             sql+=event.getId()+",";
         }
 
-        ResultSet rs2=Helper.getDataFromDB("SELECT * FROM `event_rout` WHERE ID in("+sql.substring(0,sql.length()-1)+")");
+        ResultSet rs2=helper.getDataFromDB("SELECT * FROM `event_rout` WHERE ID in("+sql.substring(0,sql.length()-1)+")");
 
         List<RoutePoint> lstRoadPoints = toRoadPoint(rs2,lstEvents);
 
         for (Event event:lstEvents) {
-            ResultSet rsUser=Helper.getDataFromDB("SELECT * FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id="+event.getId());
-            ResultSet rsUser2=Helper.getDataFromDB("SELECT * FROM `user` WHERE ID="+event.getCreated_by());
+            ResultSet rsUser=helper.getDataFromDB("SELECT * FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id="+event.getId());
+            ResultSet rsUser2=helper.getDataFromDB("SELECT * FROM `user` WHERE ID="+event.getCreated_by());
 
             List<User> lstUSer2 = UserDao.toUser(rsUser2);
             List<User> lstUSer = UserDao.toUser(rsUser);
@@ -47,26 +49,28 @@ public class EventDao {
             event.setOwner(lstUSer2.stream().filter(z->z.getId()==event.getCreated_by()).collect(Collectors.toList()).get(0));
         }
 
-        Helper.closeConnection();
+        helper.closeConnection();
 
         return lstEvents;
     }
 
     public static boolean addEvent(Event pEvent) {
 
-        Helper.makeJDBCConnection();
+        Helper helper=new Helper();
+        helper.makeJDBCConnection();
 
         String insertStatement = "INSERT  INTO  event  VALUES  ("+pEvent.getTitle()+","+pEvent.getDescription()+","+pEvent.getStartDateTime()+","+pEvent.getStatus()+","+pEvent.getOwner().getId()+")";
 
-        return   Helper.addDataToDB(insertStatement);
+        return   helper.addDataToDB(insertStatement);
 
     }
 
 
     public static List<Event> getEvent_Id(int pId) {
 
-        Helper.makeJDBCConnection();
-        ResultSet rs=Helper.getDataFromDB("SELECT * FROM `event` where ID="+pId);
+        Helper helper=new Helper();
+        helper.makeJDBCConnection();
+        ResultSet rs=helper.getDataFromDB("SELECT * FROM `event` where ID="+pId);
 
         return toEvent(rs);
     }

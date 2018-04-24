@@ -8,12 +8,15 @@ import java.sql.SQLException;
 
 public class Helper {
 
-    public Helper(){}
 
-    public static Connection dbConn = null;
-    public static PreparedStatement crunchifyPrepareStat = null;
+    private Connection dbConn;
+    private  PreparedStatement crunchifyPrepareStat;
 
-    public static void makeJDBCConnection() {
+    public  Helper(){
+
+    }
+
+    public void makeJDBCConnection() {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -26,7 +29,7 @@ public class Helper {
 
         try {
 
-            dbConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cycling", "root", "admin");
+        this.dbConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cycling", "root", "admin");
             if (dbConn != null) {
                 log("MySQL Connection Success!");
             }
@@ -38,7 +41,7 @@ public class Helper {
 
     }
 
-    public static boolean addDataToDB(String pInsertStatement) {
+    public boolean addDataToDB(String pInsertStatement) {
 
         try {
             crunchifyPrepareStat = dbConn.prepareStatement(pInsertStatement);
@@ -54,7 +57,7 @@ public class Helper {
         }
     }
 
-    public static ResultSet getDataFromDB(String getQueryStatement) {
+    public ResultSet getDataFromDB(String getQueryStatement) {
 
         try {
 
@@ -71,7 +74,7 @@ public class Helper {
 
     }
 
-    public static void closeConnection() {
+    public void closeConnection() {
 
         try {
             crunchifyPrepareStat.close();
@@ -81,7 +84,7 @@ public class Helper {
          }
     }
 
-        public static void log(String string) {
+        public void log(String string) {
         System.out.println(string);
 
     }

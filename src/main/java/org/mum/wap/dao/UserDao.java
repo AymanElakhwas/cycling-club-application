@@ -11,22 +11,23 @@ public class UserDao {
 
 
     public static User getUser(int pId) {
+        Helper helper=new Helper();
 
-        Helper.makeJDBCConnection();
-        ResultSet rs=Helper.getDataFromDB("SELECT * from user WHERE id = "+pId);
+        ResultSet rs=helper.getDataFromDB("SELECT * from user WHERE id = "+pId);
 
-        Helper.closeConnection();
+        helper.closeConnection();
         return toUser(rs).get(0);
     }
 
     public static User getUser(String pUserName,String pPassword) {
 
-        Helper.makeJDBCConnection();
-        ResultSet rs=Helper.getDataFromDB("SELECT * from user WHERE username = lower('"+pUserName.toLowerCase()+"') AND password= '"+pPassword+"'");
+        Helper helper=new Helper();
+        helper.makeJDBCConnection();
+        ResultSet rs=helper.getDataFromDB("SELECT * from user WHERE username = lower('"+pUserName.toLowerCase()+"') AND password= '"+pPassword+"'");
 
 
         User user= toUser(rs).get(0);
-        Helper.closeConnection();
+        helper.closeConnection();
         return user;
     }
 
