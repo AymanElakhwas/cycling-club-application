@@ -22,9 +22,26 @@ public class EventDao {
     public static List<Event> getEvents() {
 
         Helper.makeJDBCConnection();
-        ResultSet rs=Helper.getDataFromDB("SELECT * FROM `event` e INNER JOIN event_rout er on e.id = er.event_id");
+        ResultSet rs=Helper.getDataFromDB("SELECT * FROM `event` ");
+        List<Event> lstEvents=toEvent(rs);
 
-        return toEvent(rs);
+        String sql="";
+        for (Event event:lstEvents) {
+            sql+=event.getId()+",";
+        }
+
+        ResultSet rs2=Helper.getDataFromDB("SELECT * FROM `event_rout` WHERE ID in("+sql.substring(0,sql.length()-1)+")");
+
+       List<RoutePoint> lstRoadPoints = toRoadPoint(rs2,lstEvents);
+
+        for (Event event:lstEvents) {
+
+            event.setRoute(lstRoadPoints.stream().filter(x->x.getEvent().getId()==event.getId()).collect(Collectors.toList()));
+        }
+
+        Helper.closeConnection();
+
+        return lstEvents;
     }
 
     public static boolean addEvent(Event pEvent) {
@@ -47,7 +64,6 @@ public class EventDao {
     }
     private static List<Event> toEvent(ResultSet rs) {
 
-        List<RoutePoint> lstRoute=new ArrayList<>();
         List<Event> lstEvents=new ArrayList<>();
 
         try {
@@ -59,24 +75,37 @@ public class EventDao {
                 String description = rs.getString("description");
                 String title = rs.getString("title");
                 String current_location = rs.getString("current_location");
-                String point = rs.getString("point");
-                int point_order = rs.getInt("point_order");
-                int event_id=rs.getInt("event_id");
 
                 Event event =new Event(id, title, description, start_time, status, current_location);
                 lstEvents.add(event);
 
-                lstRoute.add(new RoutePoint(point.split(",")[0],point.split(",")[1],point_order,event));
-
             }
 
-            Helper.closeConnection();
 
-            for (Event event:lstEvents) {
-                event.setRoute(lstRoute.stream().filter(x->x.getEvent().getId()==event.getId()).collect(Collectors.toList()));
+            return  lstEvents;
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private static List<RoutePoint> toRoadPoint(ResultSet rs,List<Event> lstEvents) {
+
+        List<RoutePoint> lstRoute=new ArrayList<>();
+
+        try {
+
+            while (rs.next()) {
+                int point_order = rs.getInt("point_order");
+                String point = rs.getString("point");
+                int id = rs.getInt("ID");
+                int event_id = rs.getInt("event_id");
+
+                lstRoute.add(new RoutePoint( point.split(",")[0], point.split(",")[1],  point_order, lstEvents.stream().filter(x->x.getId()==event_id).collect(Collectors.toList()).get(0)));
             }
-
-            return  lstEvents.stream().distinct().collect(Collectors.toList());
+            return  lstRoute;
 
         } catch (SQLException e) {
 
