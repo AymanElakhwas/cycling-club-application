@@ -5,7 +5,7 @@ import javax.jws.soap.SOAPBinding;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class userDao {
+public class UserDao {
 
 
     public static User getUser(int pId) {

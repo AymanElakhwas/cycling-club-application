@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class eventDao {
+public class EventDao {
 
     public static List<Event> getEvent_status(int pStatus) {
 
