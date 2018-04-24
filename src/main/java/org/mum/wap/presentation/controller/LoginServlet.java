@@ -15,9 +15,10 @@ import java.io.IOException;
 /**
  * @Author Elham
  * @Date 04/23/2018
- * This is login servlet which validate user name and password  of client and send them to index.jsp
- * page is they are registered and send the error if they are not registered
- * This servlet also add session and user information for later usage in the applicaiton
+ *  This is login servlet which validate user name and password  of client and send them to index.jsp
+ *  page is they are registered and send the error if they are not registered
+ *  This servlet also add session and user information for later usage in the applicaiton
+ *
  */
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
@@ -26,15 +27,16 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = loginService.checkCredential(username, password);
-        request.getSession().setAttribute("userId", user.getId());
         boolean isValidUser = user != null ? true : false;
         RequestDispatcher view = null;
 
-        if (isValidUser) {
+        if(isValidUser){
+            HttpSession session = request.getSession();
+            session.setAttribute("user" , user);
             view = request.getRequestDispatcher("index.jsp");
-            view.forward(request, response);
-        } else {
-            request.setAttribute("error", "error");
+            view.forward(request,response);
+        }else {
+            request.setAttribute("error","error");
             view = request.getRequestDispatcher("login.jsp");
             view.forward(request, response);
         }
