@@ -14,7 +14,9 @@ $(function () {
     });
 
     $(document).on("click", "a.upcoming-event-record", function (event) {
-        const eventId = $(this).attr("data-event-id")
+        const eventId = $(this).attr("data-event-id");
+        $("a.upcoming-event-record").removeClass("is-active");
+        $(this).addClass("is-active");
         //TODO add logic
         console.log("upcoming-event-record " + eventId);
     });
@@ -23,8 +25,9 @@ $(function () {
         const btn = $(this);
         const eventId = btn.attr("data-event-id");
         event.stopPropagation();
-        $.get("JoinUpcomingEvent",{"eventId":eventId}).done(function () {
-            btn.hide();
-        });
+        if (!btn.hasClass("is-danger"))
+            $.get("JoinUpcomingEvent", {"eventId": eventId}).done(function () {
+                btn.removeClass("is-primary").addClass("is-danger").val("Enrolled");
+            });
     });
 });
