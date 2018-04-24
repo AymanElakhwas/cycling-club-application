@@ -1,8 +1,10 @@
 package org.mum.wap.service;
 
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.mum.wap.dao.EventDao;
 import org.mum.wap.model.Event;
+import org.mum.wap.model.RoutePoint;
 
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class EventService {
     }
 
     public void joinEvent(long eventId, long userId) {
-        EventDao.joinEvent(eventId,userId);
+        EventDao.joinEvent(eventId, userId);
     }
 
     public JSONArray getLiveEvents() {
@@ -34,5 +36,21 @@ public class EventService {
     public JSONArray getMyRideEvents() {
         List<Event> events = EventDao.getEvents();
         return JsonSerializer.serializeEvents(events);
+    }
+
+    public void startEvent(long eventId) {
+    }
+
+    public void raiseFlagForEvent(long eventId) {
+    }
+
+    public void finishEvent(long eventId) {
+
+
+    }
+
+    public List<RoutePoint> getRoutePoints(String pJsonStr) {
+
+        return JsonDeserializer.deserializeRoutePoints(pJsonStr);
     }
 }
