@@ -2,6 +2,7 @@ package org.mum.wap.dao;
 
 import org.mum.wap.model.Event;
 import org.mum.wap.model.RoutePoint;
+import org.mum.wap.model.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,11 +33,22 @@ public class EventDao {
 
         ResultSet rs2=Helper.getDataFromDB("SELECT * FROM `event_rout` WHERE ID in("+sql.substring(0,sql.length()-1)+")");
 
-       List<RoutePoint> lstRoadPoints = toRoadPoint(rs2,lstEvents);
+
+
+        List<RoutePoint> lstRoadPoints = toRoadPoint(rs2,lstEvents);
 
         for (Event event:lstEvents) {
-
             event.setRoute(lstRoadPoints.stream().filter(x->x.getEvent().getId()==event.getId()).collect(Collectors.toList()));
+
+
+            ResultSet rsUser=Helper.getDataFromDB("SELECT * FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id="+event.getId());
+
+            List<User> lstUSer = UserDao.toUser(rsUser);
+            event.setParticipants(lstUSer);
+            ResultSet rsUser2=Helper.getDataFromDB("SELECT * FROM `user_event` ue inner join user u on u.ID=ue.user_id INNER JOIN event e on e.ID=ue.event_id and e.created_by="+event.getCreated_by());
+            List<User> lstUSer2 = UserDao.toUser(rsUser2);
+
+            event.setOwner(lstUSer2.stream().filter(z->z.getId()==event.getCreated_by()).collect(Collectors.toList()).get(0));
         }
 
         Helper.closeConnection();
@@ -75,8 +87,9 @@ public class EventDao {
                 String description = rs.getString("description");
                 String title = rs.getString("title");
                 String current_location = rs.getString("current_location");
+                int created_by = rs.getInt("created_by");
 
-                Event event =new Event(id, title, description, start_time, status, current_location);
+                Event event =new Event(id, title, description, start_time, status, current_location,created_by);
                 lstEvents.add(event);
 
             }

@@ -15,6 +15,7 @@ public class Event {
     private int status;
     private String currentLocation;
     private User owner;
+    private int created_by;
     private List<User> participants = new ArrayList<>();
     private List<RoutePoint> route = new ArrayList<>();
 
@@ -29,8 +30,9 @@ public class Event {
         this.status = status;
         this.route = route;
         this.currentLocation = currentLocation;
+
     }
-    public Event(long id, String title, String description, LocalDate startDateTime, int status,String currentLocation) {
+    public Event(long id, String title, String description, LocalDate startDateTime, int status,String currentLocation,int created_by) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -38,6 +40,7 @@ public class Event {
         this.status = status;
         this.route = route;
         this.currentLocation = currentLocation;
+        this.created_by=created_by;
     }
     public Event(long id, String title, String description, LocalDate startDateTime, int status, User owner, String currentLocation, List<User> participants, List<RoutePoint> route) {
         this.id = id;
@@ -90,6 +93,9 @@ public class Event {
 
     public int getStatus() {
         return status;
+    }
+    public int getCreated_by() {
+        return this.created_by;
     }
 
     public void setStatus(int status) {
