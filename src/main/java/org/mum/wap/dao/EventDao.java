@@ -7,6 +7,7 @@ import org.mum.wap.model.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -79,12 +80,12 @@ public class EventDao {
         return lstEvents;
     }
 
-    public static boolean addEvent(Event pEvent) {
+    public static boolean addEvent(String title, String description, LocalDateTime startDateTime, int status, String currentLocation, int created_by) {
 
         Helper helper = new Helper();
         helper.makeJDBCConnection();
 
-        String insertStatement = "INSERT  INTO  event  VALUES  (" + pEvent.getTitle() + "," + pEvent.getDescription() + "," + pEvent.getStartDateTime() + "," + pEvent.getStatus() + "," + pEvent.getOwner().getId() + ")";
+        String insertStatement = "INSERT  INTO  event (title, description, start_time,status,created_by,current_location)  VALUES  ("+title+","+description+","+startDateTime+","+status+","+created_by+", "+currentLocation+")";
 
         return helper.addDataToDB(insertStatement);
 

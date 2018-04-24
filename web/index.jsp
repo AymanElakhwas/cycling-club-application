@@ -34,7 +34,7 @@
     <div class="container">
         <div class="columns">
             <div class="column is-9">
-                <img src="resources/images/cycling-logo-white-small.png" class="logo-img" width="150">
+                <img src="resources/images/cycling-logo-white-small.png" class="logo-img">
             </div>
             <div class="column have-top-padding notifications">
                 <span id="notifications" class="icon is-large notifications-flag" title="no emercengy"><i class="fas fa-flag fa-2x"></i></span>

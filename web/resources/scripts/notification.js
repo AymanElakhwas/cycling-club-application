@@ -9,7 +9,7 @@ $(function(){
     notificationController();
     function notificationController() {
         if (timer === null) {
-            timer = setInterval(showNotifications, 5000);
+            timer = setInterval(showNotifications, 3000);
         } else {
             clearInterval(timer);
             timer = null;
