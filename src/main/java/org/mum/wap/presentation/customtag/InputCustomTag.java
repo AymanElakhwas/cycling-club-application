@@ -18,15 +18,16 @@ public class InputCustomTag extends SimpleTagSupport {
     String autocomplete;
     String required;
     String value;
+    String htmlClass;
 
     public void doTag() throws IOException {
         JspWriter out = getJspContext().getOut();
-        if(type!=null&&name!=null&&autocomplete!=null&&value!=null) {
-            out.write(String.format("<input type='%s' name='%s' autocomplete='%s' %s value='%s'/>", type, name , autocomplete , (required.equals("true")?"required":"") , value));
+        if(type!=null&&name!=null&&autocomplete!=null&&value!=null&&htmlClass!=null) {
+            out.write(String.format("<input type='%s' name='%s' autocomplete='%s' %s value='%s' class='%s'/>", type, name , autocomplete , (required.equals("true")?"required":"") , value , htmlClass));
         }else if(type!=null&&name!=null&&autocomplete!=null){
-            out.write(String.format("<input type='%s' name='%s' autocomplete='%s' %s/>", type, name , autocomplete , (required.equals("true")?"required":"")));
+            out.write(String.format("<input type='%s' name='%s' autocomplete='%s' %s class='%s'/>", type, name , autocomplete , (required.equals("true")?"required":"") , htmlClass));
         }else if(type!=null && value !=null){
-            out.write(String.format("<input type='%s' value='%s'/>", type, value));
+            out.write(String.format("<input type='%s' value='%s' class='%s'/>", type, value ,htmlClass));
         }else{
             out.write(String.format("<input type='%s' %s/>" , type ,(required.equals("true")?"required":"")));
         }
@@ -45,4 +46,5 @@ public class InputCustomTag extends SimpleTagSupport {
         this.required = required;
     }
     public void setValue(String value){ this.value=value; }
+    public void setHtmlClass(String htmlClass){ this.htmlClass = htmlClass; }
 }

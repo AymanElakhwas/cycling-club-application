@@ -30,9 +30,14 @@
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+        <attribute>
+            <name>htmlClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
     </tag>
     <tag>
-        <name>ERROR</name>
+        <name>NOTIFICATION</name>
         <tag-class>org.mum.wap.presentation.customtag.ErrorCustomTag</tag-class>
         <body-content>empty</body-content>
         <attribute>

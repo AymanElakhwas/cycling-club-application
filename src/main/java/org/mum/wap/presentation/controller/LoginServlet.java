@@ -26,7 +26,12 @@ public class LoginServlet extends HttpServlet {
         LoginService loginService = new LoginService();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        User user = loginService.checkCredential(username, password);
+        User user = null;
+        try {
+            user = loginService.checkCredential(username, password);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         boolean isValidUser = user != null ? true : false;
         RequestDispatcher view = null;
 
