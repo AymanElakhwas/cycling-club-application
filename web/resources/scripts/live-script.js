@@ -32,7 +32,7 @@ $(function () {
             }
 
             const eventnumber = event.id;
-            const elem = "<a class='panel-block live-event-record' data-event-id='" + eventnumber + "'><div class='container'><div class='level'><div class='level-left'><div class='level-item'><span class='panel-icon'><i class='far fa-calendar-alt'></i></span>" + event.title + " "
+            const elem = "<a class='panel-block live-event-record' data-event-id='" + eventnumber + "'><div class='container'><div class='level'><div class='level-left'><div class='level-item'><span class='panel-icon'><i class='fas fa-play-circle'></i></i></span>" + event.title + " "
                 + event.dateTime + "</div></div><div class='level-right'><div class='level-item'><input type='button' value='" + btnVal + "' class='button " + btnClass + " join-live-event-btn' data-event-id='" + eventnumber + "'/></div></div></div></div></a>";
             $(".live-pnl").append(elem);
         });
