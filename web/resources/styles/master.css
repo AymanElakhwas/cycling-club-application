@@ -1,20 +1,3 @@
-.username-txt {
-    float: right;
-    margin-top: 45px;
-    margin-right: 25px;
-}
-
-.username-icon {
-    float: right;
-    margin-top: 49px;
-    font-size: 2.5em;
-}
-
-.logo-img {
-    width: 12%;
-    height: 12%;
-    padding: 15px 0px;
-}
 
 .error {
     color: red;
@@ -36,8 +19,11 @@
     visibility: hidden;
 }
 
-.start-my-event-btn, .finish-my-event-btn,
+.start-my-event-btn, .finish-my-event-btn, .enrolled-event-btn,
 .resume-my-event-btn, .completed-my-event-btn,
 .join-upcoming-event-btn, .join-live-event-btn {
     width: 100px;
+    height: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
