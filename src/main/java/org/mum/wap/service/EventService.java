@@ -35,4 +35,13 @@ public class EventService {
         List<Event> events = EventDao.getEvents();
         return JsonSerializer.serializeEvents(events);
     }
+
+    public void startEvent(long eventId) {
+    }
+
+    public void raiseFlagForEvent(long eventId) {
+    }
+
+    public void finishEvent(long eventId) {
+    }
 }
