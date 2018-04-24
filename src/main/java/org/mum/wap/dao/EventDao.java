@@ -33,22 +33,17 @@ public class EventDao {
 
         ResultSet rs2=Helper.getDataFromDB("SELECT * FROM `event_rout` WHERE ID in("+sql.substring(0,sql.length()-1)+")");
 
-
-
         List<RoutePoint> lstRoadPoints = toRoadPoint(rs2,lstEvents);
 
         for (Event event:lstEvents) {
-            event.setRoute(lstRoadPoints.stream().filter(x->x.getEvent().getId()==event.getId()).collect(Collectors.toList()));
-
-
             ResultSet rsUser=Helper.getDataFromDB("SELECT * FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id="+event.getId());
-
             ResultSet rsUser2=Helper.getDataFromDB("SELECT * FROM `user` WHERE ID="+event.getCreated_by());
+
             List<User> lstUSer2 = UserDao.toUser(rsUser2);
-
             List<User> lstUSer = UserDao.toUser(rsUser);
-            event.setParticipants(lstUSer);
 
+            event.setParticipants(lstUSer);
+            event.setRoute(lstRoadPoints.stream().filter(x->x.getEvent().getId()==event.getId()).collect(Collectors.toList()));
             event.setOwner(lstUSer2.stream().filter(z->z.getId()==event.getCreated_by()).collect(Collectors.toList()).get(0));
         }
 
