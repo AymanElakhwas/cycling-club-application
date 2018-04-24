@@ -14,7 +14,7 @@ $(function () {
         return event.owner.id == user.id;
     }
 
-    $.get("GetUpcomingEvents").done(function (data) {
+    $.get("GetLiveEvents").done(function (data) {
         const events = data["events"];
         const user = data["user"];
 
@@ -28,26 +28,26 @@ $(function () {
             // }
 
             const eventnumber = event.id;
-            const elem = "<a class='panel-block upcoming-event-record' data-event-id='" + eventnumber + "'><div class='container'><div class='level'><div class='level-left'><div class='level-item'><span class='panel-icon'><i class='far fa-calendar-alt'></i></span>" + event.title + " "
-                + event.dateTime + "</div></div><div class='level-right'><div class='level-item'><input type='button' value='" + btnVal + "' class='button " + btnClass + " join-upcoming-event-btn' data-event-id='" + eventnumber + "'/></div></div></div></div></a>";
-            $(".upcoming-pnl").append(elem);
+            const elem = "<a class='panel-block live-event-record' data-event-id='" + eventnumber + "'><div class='container'><div class='level'><div class='level-left'><div class='level-item'><span class='panel-icon'><i class='far fa-calendar-alt'></i></span>" + event.title + " "
+                + event.dateTime + "</div></div><div class='level-right'><div class='level-item'><input type='button' value='" + btnVal + "' class='button " + btnClass + " join-live-event-btn' data-event-id='" + eventnumber + "'/></div></div></div></div></a>";
+            $(".live-pnl").append(elem);
         });
     });
 
-    $(document).on("click", "a.upcoming-event-record", function (event) {
+    $(document).on("click", "a.live-event-record", function (event) {
         const eventId = $(this).attr("data-event-id");
-        $("a.upcoming-event-record").removeClass("is-active");
+        $("a.live-event-record").removeClass("is-active");
         $(this).addClass("is-active");
         //TODO add logic
-        console.log("upcoming-event-record " + eventId);
+        console.log("live-event-record " + eventId);
     });
 
-    $(document).on("click", "input.join-upcoming-event-btn", function (event) {
+    $(document).on("click", "input.join-live-event-btn", function (event) {
         const btn = $(this);
         const eventId = btn.attr("data-event-id");
         event.stopPropagation();
         if (!btn.hasClass("is-danger"))
-            $.get("JoinUpcomingEvent", {"eventId": eventId}).done(function () {
+            $.get("JoinLiveEvent", {"eventId": eventId}).done(function () {
                 btn.removeClass("is-primary").addClass("is-danger").val("Enrolled");
             });
     });

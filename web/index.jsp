@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="resources/styles/master.css">
     <script src="resources/scripts/master-script.js"></script>
     <script src="resources/scripts/upcoming-script.js"></script>
+    <script src="resources/scripts/live-script.js"></script>
     <script src="resources/scripts/notification.js"></script>
 
 </head>
@@ -64,6 +65,9 @@
         </div>
 
         <jsp:include page="upcoming-events.jsp" />
+        <jsp:include page="live-events.jsp" />
+        <!--jsp:include page="enrolled-events.jsp" /-->
+        <!--jsp:include page="my-events.jsp" /-->
 
     </div>
 </section>

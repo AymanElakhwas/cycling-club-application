@@ -27,3 +27,8 @@
 .upcoming-pnl {
     width: 55%;
 }
+
+.live-pnl {
+    width: 55%;
+    display: none;
+}
