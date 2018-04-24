@@ -20,7 +20,7 @@
 }
 
 .start-my-event-btn, .finish-my-event-btn, .enrolled-event-btn,
-.resume-my-event-btn, .completed-my-event-btn,
+.resume-my-event-btn, .completed-my-event-btn, .flag-my-event-btn,
 .join-upcoming-event-btn, .join-live-event-btn {
     width: 100px;
     height: 30px;
