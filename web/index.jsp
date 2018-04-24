@@ -66,11 +66,11 @@
             </ul>
         </div>
 
-        <!--jsp:include page="upcoming-events.jsp" /-->
-        <!-- jsp:include page="live-events.jsp" /-->
+        <jsp:include page="upcoming-events.jsp" />
+        <jsp:include page="live-events.jsp" />
         <!--jsp:include page="enrolled-events.jsp" /-->
         <!--jsp:include page="my-events.jsp" /-->
-        <jsp:include page="add-event.jsp" />
+        <!--jsp:include page="add-event.jsp" /-->
     </div>
 </section>
 
