@@ -108,13 +108,12 @@ function setMapOnAll(map) {
             let points=[];
             for(let i=0;i<markers.length;i++){
 
-                points.push( markers[0].position.lat()+","+markers[0].position.lng());
+                points.push( markers[i].position.lat()+","+markers[i].position.lng());
             }
-
 
             if(title&&date&&markers.length>1) {
 
-                $.post( "http://localhost:8080/AddEvent", { "title": title, "date": date,"description":description,"markers":points } ) .done(function() {
+                $.post( "http://localhost:8080/AddEvent", { "title": title, "date": date,"description":description,"markers":JSON.stringify({"points":points}) } ) .done(function() {
                     alert( "second success" );
                 })
                     .fail(function() {
