@@ -1,13 +1,11 @@
 <!-- @author Abdelrahman-->
-<div >
-   <!-- <div>
-    <a class="button is-primary">add event</a>
-    </div>
--->
+
+<div id="dvAddEvent" style="display: none">
+
     <div class="add-event-map">
         <div id="floating-panel">
 
-            <a class="button is-danger" onclick="deleteMarkers();">Delete Path</a>
+            <a class="button is-danger">Delete Path</a>
         </div>
         <div id="map"></div>
     </div>
@@ -42,13 +40,10 @@
                     <span>Save</span>
                     </a>
                 </div>
-
         </div>
 
 
-
 </div>
-
 <script src="resources/scripts/add-event.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk_JTdFX0pCAgSvyVK74dPaSQz1ybPH-E&callback=initMap">

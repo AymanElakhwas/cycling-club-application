@@ -39,11 +39,11 @@
 </section>
 <section class="section">
     <div class="container">
-        <nav class="level">
+        <nav class="level" id="navMain">
             <!-- Left side -->
             <div class="level-left">
                 <div class="level-item">
-                    <a class="button is-success">
+                    <a class="button is-success" id="btnCreatEvent">
                     <span class="icon is-small"><i class="fas fa-flag-checkered"></i>
                     </span><span>Create Event</span></a>
                 </div>
