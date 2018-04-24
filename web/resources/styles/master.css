@@ -32,3 +32,12 @@
     width: 55%;
     display: none;
 }
+
+.enrolled-pnl {
+    width: 55%;
+    display: none;
+}
+
+.enrolled-event-btn {
+    visibility: hidden;
+}

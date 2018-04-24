@@ -23,4 +23,11 @@ public class EventService {
         events.remove(0);
         return JsonSerializer.serializeEvents(events);
     }
+
+    public JSONArray getEnrolledEvents(long id) {
+        List<Event> events = EventDao.getEvents();
+        events.remove(1);
+        events.remove(0);
+        return JsonSerializer.serializeEvents(events);
+    }
 }
