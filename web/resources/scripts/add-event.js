@@ -113,7 +113,7 @@ function setMapOnAll(map) {
 
             if(title&&date&&markers.length>1) {
 
-                $.post( "http://localhost:8080/AddEvent", { "title": title, "date": date,"description":description,"markers":JSON.stringify({"RoutePoint":points}) } ) .done(function() {
+                $.post( "http://localhost:8080/AddEvent", { "title": title, "date": date,"description":description,"markers":JSON.stringify({"RoutePoints":points}) } ) .done(function() {
                     alert( "second success" );
                 })
                     .fail(function() {
