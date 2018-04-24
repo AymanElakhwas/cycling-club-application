@@ -80,8 +80,6 @@ function setMapOnAll(map) {
 
             $("#btnSaveEvent").click(function () {
 
-
-
             let title=$("#txtTitle").val();
             let date=$("#dtStart").val();
 
@@ -106,6 +104,15 @@ function setMapOnAll(map) {
             }
 
             if(title&&date&&markers.length>1) {
+
+                $.post( "test.php", { name: "John", time: "2pm" } ) .done(function() {
+                    alert( "second success" );
+                })
+                    .fail(function() {
+                        alert( "error" );
+                    });
+
+
                 $("#navMain").show();
                 $(".view-panel").first().show();
                 $("#dvAddEventContainer").hide();
