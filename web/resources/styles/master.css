@@ -1,20 +1,3 @@
-.username-txt {
-    float: right;
-    margin-top: 45px;
-    margin-right: 25px;
-}
-
-.username-icon {
-    float: right;
-    margin-top: 49px;
-    font-size: 2.5em;
-}
-
-.logo-img {
-    width: 12%;
-    height: 12%;
-    padding: 15px 0px;
-}
 
 .error {
     color: red;

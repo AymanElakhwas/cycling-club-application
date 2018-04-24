@@ -1,27 +1,43 @@
+/**
+ * @Author Elham
+ * @Date 04/23/2018
+ *
+ */
+
 $(function(){
-    $('.notifications').click(showNotifications);
-
-    function showNotifications(){
-        $.get("/Notification").done(function(data){console.log(data)});
-    }
-
-
-
-    let count=0;
-    let timer = null; // stores ID of interval timer
-    function delayMsg2() {
+    let timer = null;
+    notificationController();
+    function notificationController() {
         if (timer === null) {
-            timer = setInterval(rudy, 1000);
+            timer = setInterval(showNotifications, 5000);
         } else {
             clearInterval(timer);
             timer = null;
         }
     }
-    function rudy() { // called each time the timer goes off
-        document.getElementById("notifications").innerHTML += "InterVal"+count++;
+
+    function showNotifications(){
+        $.get("/Notification").done(function(data){console.log(data); addNotifications(data);});
+
     }
 
+    function addNotifications(data) {
+        let elem ="";
+        $(".notifications .notification-item").empty();
+        if(data.length>0) {
+            $.each(data,function(index,value){
+                console.log(value);
+                elem += "<div class=\"dropdown-item\">"+" "+value.title+" "+value.description+"</div>";
+            })
+            $(".notifications .notification-item").append(elem);
+            $(".notifications .dropdown.is-hoverable").removeClass('nodisplay');
+            $('#notifications').css('color', 'red');
+            $('#notifications').attr('title', data.length+' emercenies')
+        }else {
+            $('#notifications').attr('title','no emerceny')
+        }
 
+    }
 
 
 
