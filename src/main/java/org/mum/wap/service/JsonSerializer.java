@@ -99,11 +99,11 @@ public class JsonSerializer {
 
     private static List<RoutePoint> createTestRoute() {
         List<RoutePoint> route = new ArrayList<>();
-        route.add(new RoutePoint("11", "13", 1));
-        route.add(new RoutePoint("33", "23", 2));
-        route.add(new RoutePoint("65", "23", 3));
-        route.add(new RoutePoint("45", "56", 4));
-        route.add(new RoutePoint("34", "22", 5));
+//        route.add(new RoutePoint("11", "13", 1));
+//        route.add(new RoutePoint("33", "23", 2));
+//        route.add(new RoutePoint("65", "23", 3));
+//        route.add(new RoutePoint("45", "56", 4));
+//        route.add(new RoutePoint("34", "22", 5));
         return route;
     }
 
