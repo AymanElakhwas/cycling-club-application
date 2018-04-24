@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 @WebServlet("/AddEvent")
 public class AddEvent extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,10 +28,13 @@ public class AddEvent extends HttpServlet {
         EventService es = new EventService();
         List<RoutePoint> lstPoints=  es.getRoutePoints(markers);
 
-        String dateInString = "2016-08-16T15:23:01Z";
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-ddThh:mm");
+  //      LocalDateTime dateTime = LocalDateTime.parse(date, formatter);
 
-        Instant instant = Instant.parse(dateInString);
-        LocalDateTime result = LocalDateTime.ofInstant(instant, ZoneId.of(ZoneOffset.UTC.getId()));
+        LocalDateTime result= LocalDateTime.now();
+
+        //Instant instant = Instant.parse(date);
+        //LocalDateTime result = LocalDateTime.ofInstant(instant, ZoneId.of(ZoneOffset.UTC.getId()));
         EventDao.addEvent(title,description,result,0,"",1);
 
     }

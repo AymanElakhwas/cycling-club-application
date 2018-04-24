@@ -108,7 +108,7 @@ function setMapOnAll(map) {
             let points=[];
             for(let i=0;i<markers.length;i++){
 
-                points.push( {"lat":markers[i].position.lat(),"lon":markers[i].position.lng(),"order":i});
+                points.push( {"lat":markers[i].position.lat(),"long":markers[i].position.lng(),"order":i});
             }
 
             if(title&&date&&markers.length>1) {
