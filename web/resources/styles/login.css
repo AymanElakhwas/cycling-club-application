@@ -1,0 +1,12 @@
+
+.login .container .columns {
+    text-align: center;
+}
+
+.login .container .column.is-6 p{
+    margin: 20px 0;
+}
+
+.login-container{
+    margin-top: 60px;
+}

@@ -24,11 +24,10 @@ public class UserDao {
         Helper helper=new Helper();
         helper.makeJDBCConnection();
         ResultSet rs=helper.getDataFromDB("SELECT * from user WHERE username = lower('"+pUserName.toLowerCase()+"') AND password= '"+pPassword+"'");
-
-
         User user= toUser(rs).get(0);
         helper.closeConnection();
         return user;
+
     }
 
    static List<User> toUser(ResultSet rs){
