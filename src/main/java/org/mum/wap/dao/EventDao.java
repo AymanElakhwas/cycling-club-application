@@ -43,10 +43,11 @@ public class EventDao {
 
             ResultSet rsUser=Helper.getDataFromDB("SELECT * FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id="+event.getId());
 
+            ResultSet rsUser2=Helper.getDataFromDB("SELECT * FROM `user` WHERE ID="+event.getCreated_by());
+            List<User> lstUSer2 = UserDao.toUser(rsUser2);
+
             List<User> lstUSer = UserDao.toUser(rsUser);
             event.setParticipants(lstUSer);
-            ResultSet rsUser2=Helper.getDataFromDB("SELECT * FROM `user_event` ue inner join user u on u.ID=ue.user_id INNER JOIN event e on e.ID=ue.event_id and e.created_by="+event.getCreated_by());
-            List<User> lstUSer2 = UserDao.toUser(rsUser2);
 
             event.setOwner(lstUSer2.stream().filter(z->z.getId()==event.getCreated_by()).collect(Collectors.toList()).get(0));
         }
