@@ -49,8 +49,8 @@ public class EventService {
 
     }
 
-    public List<RoutePoint> getRoutePoints(JSONObject jsonObject) {
+    public List<RoutePoint> getRoutePoints(String pJsonStr) {
 
-        return JsonDeserializer.DeserializeRoutePoints(pJsonStr);
+        return JsonDeserializer.deserializeRoutePoints(pJsonStr);
     }
 }
