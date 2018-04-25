@@ -27,6 +27,8 @@
             $(".event-details").show();
             deleteMarkers();
             mapDisabled=true;
+            $("#lblMapError").text("").css("color","black");
+            $('#btnClearMarks').attr('disabled', true);
 
         });
 
