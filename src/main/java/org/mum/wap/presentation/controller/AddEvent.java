@@ -31,7 +31,7 @@ public class AddEvent extends HttpServlet {
         EventService es = new EventService();
         List<RoutePoint> lstPoints=  es.getRoutePoints(markers);
 
-        HttpSession session=request.getSession();
+        HttpSession session=request.getSession(false);
         User user=(User)session.getAttribute("user");
 
         String str =date.replace("T"," ");// "1986-04-08 12:30";
