@@ -1,8 +1,10 @@
 package org.mum.wap.presentation.customtag;
 
+import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * @Author Elham
@@ -13,17 +15,19 @@ import java.io.IOException;
  */
 public class ForEachTagHandler extends SimpleTagSupport {
 
-    String[] items;
+    ArrayList<Object> items;
+    String var;
 
-    public void doTag() throws IOException {
-        JspWriter out = getJspContext().getOut();
-        for(String item : items)
-            out.println(item);
+    public void doTag() throws IOException, JspException {
+        for(Object item : items) {
+            getJspContext().setAttribute(var, item);
+            getJspBody().invoke(null);
+        }
     }
 
-
-    public void setItems(String[] items){
+    public void setItems(ArrayList<Object> items){
         this.items = items;
     }
+    public void setVar(String var){this.var = var;}
 
 }

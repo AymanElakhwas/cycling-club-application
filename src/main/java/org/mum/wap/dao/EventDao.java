@@ -110,6 +110,17 @@ public class EventDao {
 
     }
 
+    public static boolean updateEventStatusAndLocation(int eventId, int status, String location) {
+
+        Helper helper = new Helper();
+        helper.makeJDBCConnection();
+
+        String updateStmt = "Update `event` SET status=" + status + ",location="+location+" WHERE ID=" + eventId;
+
+        return helper.updateInDB(updateStmt);
+
+    }
+
 
     public static Event getEventById(int pId) {
         Helper helper = new Helper();

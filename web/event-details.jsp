@@ -5,12 +5,10 @@
   Time: 5:35 PM
   To change this template use File | Settings | File Templates.
 --%>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
-<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-<%@taglib prefix="cyclist" uri="WEB-INF/custom.tld" %>
 
-<div class="section">
-    <div class="container" style="max-width: 30%;">
+
+<div class="section view-panel event-details-pnl">
+    <div class="container">
         <div class="content">
             <div class="field">
                 <label class="label">Route of Event</label>
@@ -50,7 +48,13 @@
                 <div class="field">
                     <label class="label">Participant</label>
                     <div class="control">
-                        <cyclist:FOREACH items="${Event.participants}"/>
+                        <div class="columns is-multiline is-centered is-8">
+                        <cyclist:FOREACH var="user" items="${Event.participants}">
+                            <div class="column has-background-light" style="margin: 1px">
+                                ${user.name}
+                            </div>
+                        </cyclist:FOREACH>
+                        </div>
                     </div>
                 </div>
 

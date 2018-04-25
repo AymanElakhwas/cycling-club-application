@@ -24,7 +24,7 @@
     <script src="resources/scripts/live-script.js"></script>
     <script src="resources/scripts/enrolled-script.js"></script>
     <script src="resources/scripts/myrides-script.js"></script>
-    <script src="resources/scripts/notification.js"></script>
+    <!--script src="resources/scripts/notification.js"></script-->
     <script src="resources/scripts/add-event.js"></script>
 
 
@@ -37,7 +37,8 @@
                 <img src="resources/images/cycling-logo-white-small.png" class="logo-img" width="150">
             </div>
             <div class="column have-top-padding notifications">
-                <span id="notifications" class="icon is-large notifications-flag" title="no emercengy"><i class="fas fa-flag fa-2x"></i></span>
+                <span id="notifications" class="icon is-large notifications-flag" title="no emercengy"><i
+                        class="fas fa-flag fa-2x"></i></span>
                 <div class="dropdown is-hoverable nodisplay">
                     <div class="dropdown-trigger">
                         <span class="icon is-small"><i class="fas fa-angle-down" aria-hidden="true"></i></span>
@@ -61,6 +62,7 @@
 </section>
 <section class="section">
     <div class="container">
+
         <nav class="level" id="navMain">
             <!-- Left side -->
             <div class="level-left">
@@ -103,12 +105,18 @@
                 </div>
             </div>
         </nav>
-
-        <jsp:include page="upcoming-events.jsp"/>
-        <jsp:include page="live-events.jsp"/>
-        <jsp:include page="enrolled-events.jsp"/>
-        <jsp:include page="myride-events.jsp"/>
-        <jsp:include page="add-event.jsp"/>
+        <div class="columns">
+            <div class="column is-7">
+                <jsp:include page="upcoming-events.jsp"/>
+                <jsp:include page="live-events.jsp"/>
+                <jsp:include page="enrolled-events.jsp"/>
+                <jsp:include page="myride-events.jsp"/>
+                <jsp:include page="add-event.jsp"/>
+            </div>
+            <div class="column is-5">
+                <jsp:include page="event-details.jsp"/>
+            </div>
+        </div>
     </div>
 </section>
 

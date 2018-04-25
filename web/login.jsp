@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="resources/styles/login.css">
 </head>
 <body>
-<a href="/EventDetailsServlet" >adfasdfasdfdf</a>
 <section class="hero is-dark login">
     <div class="container " style="font-family: cursive;font-size: 40px;">
         <div class="columns">

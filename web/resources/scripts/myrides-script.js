@@ -69,8 +69,9 @@ $(function () {
         const btn = $(this);
         const btnsContainer = btn.parent().parent();
         const eventId = btn.attr("data-event-id");
+        const location = "";
         event.stopPropagation();
-        $.get("RaiseFlagForEvent", {"eventId": eventId}).done(function () {
+        $.get("RaiseFlagForEvent", {"eventId": eventId, "location":location}).done(function () {
             const btnMarkup = "<div class='level-item'><input type='button' value='Resume' class='button is-primary resume-my-event-btn' data-event-id='" + eventId + "'/></div>";
             btnsContainer.empty();
             btnsContainer.append(btnMarkup)
