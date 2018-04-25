@@ -24,7 +24,7 @@
     <script src="resources/scripts/live-script.js"></script>
     <script src="resources/scripts/enrolled-script.js"></script>
     <script src="resources/scripts/myrides-script.js"></script>
-    <!--script src="resources/scripts/notification.js"></script-->
+    <script src="resources/scripts/notification.js"></script>
 
 
 
