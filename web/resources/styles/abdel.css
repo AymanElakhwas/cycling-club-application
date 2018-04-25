@@ -23,6 +23,11 @@
     width: 100%;
 
 }
+#dvGeneralmap {
+    height: 300px;
+    width: 100%;
+
+}
 #floating-panel {
     position: absolute;
     bottom: 55px;
