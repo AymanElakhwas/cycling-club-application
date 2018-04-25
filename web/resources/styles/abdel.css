@@ -1,25 +1,17 @@
 
 .add-event-data {
-    width: 55%;
+    width: 100%;
     float: right;
     height: 372px;
-    padding: 5px 20px 20px 0px;
+    padding: 5px 20px 20px 5px;
     box-sizing: padding-box;
+    border: solid 1px #dbdbdb;
+    border-radius: 4px;
 }
 
-.add-event-map {
-    float: right;
-    width: 40%;
-    min-height: 260px;
-    height: 372px;
-    position: relative;
-    margin: 10px;
-    padding: 20px 0px;
-    text-align: center;
-}
 
 #map {
-    height: 300px;
+    height: 250px;
     width: 100%;
 
 }
@@ -37,4 +29,17 @@
     font-family: 'Roboto','sans-serif';
     line-height: 30px;
     padding-left: 10px;
+}
+
+.main-map .section {
+    padding: 0;
+    border: solid 1px #dbdbdb;
+    border-radius: 4px;
+    text-align: center;
+}
+.main-map .section div{
+    text-align: center;
+}
+.section.map-panel.event-details-pnl .container{
+    width: inherit;
 }

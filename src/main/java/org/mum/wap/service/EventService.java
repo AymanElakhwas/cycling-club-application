@@ -18,6 +18,10 @@ public class EventService {
         return JsonSerializer.serializeEvents(EventDao.getUpcomingEvents());
     }
 
+    public JSONArray getEventRoutePoints(int eventid) {
+
+        return JsonSerializer.serializeRoutePoints(EventDao.getRoutePointsByEventId(eventid));
+    }
     public void joinEvent(int eventId, int userId) {
         EventDao.joinEvent(eventId, userId);
     }

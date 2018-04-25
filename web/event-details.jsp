@@ -7,16 +7,7 @@
 --%>
 <%@taglib prefix="cyclist" uri="WEB-INF/custom.tld" %>
 
-<div class="section view-panel event-details-pnl">
-    <div class="container">
-        <div class="columns">
-            <div class="column">
-                <div class="field">
-                    <label class="label has-background-light">Route of Event</label>
-                            <div id="map"> </div>
-                </div>
-            </div>
-        </div>
+
         <div class="columns">
             <div class="column is-8">
                 <div class="field">
@@ -60,12 +51,3 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-
-<script src="resources/scripts/map.js"></script>
-
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk_JTdFX0pCAgSvyVK74dPaSQz1ybPH-E&callback=initMap">
-</script>

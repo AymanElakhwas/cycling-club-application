@@ -153,6 +153,29 @@ public class EventDao {
         return lstEvents.get(0);
     }
 
+    public static List<RoutePoint> getRoutePointsByEventId(int pId) {
+
+
+        Helper helper = new Helper();
+        helper.makeJDBCConnection();
+        ResultSet rs = helper.getDataFromDB("SELECT * FROM `event` where ID=" + pId);
+        List<Event> lstEvents = toEvent(rs);
+
+        if (lstEvents.isEmpty())
+            return null;
+
+        String sql = "";
+        for (Event event : lstEvents) {
+            sql += event.getId() + ",";
+        }
+
+        ResultSet rs2 = helper.getDataFromDB("SELECT * FROM `event_rout` WHERE event_id in(" + sql.substring(0, sql.length() - 1) + ")");
+
+        List<RoutePoint> lstRoadPoints = toRoadPoint(rs2, lstEvents);
+
+        return lstRoadPoints;
+    }
+
     public static List<Event> getEnrolledEventForUser(int userId) {
         Helper helper = new Helper();
         helper.makeJDBCConnection();

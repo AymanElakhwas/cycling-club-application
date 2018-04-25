@@ -57,7 +57,11 @@ public class JsonSerializer {
         events.forEach(e -> arr.add(serialize(e)));
         return arr;
     }
-
+    public static JSONArray serializeRoutePoints(List<RoutePoint> events) {
+        JSONArray arr = new JSONArray();
+        events.forEach(e -> arr.add(serialize(e)));
+        return arr;
+    }
     public static JSONArray serializeUsers(List<User> users) {
         JSONArray arr = new JSONArray();
         users.forEach(u -> arr.add(serialize(u)));
