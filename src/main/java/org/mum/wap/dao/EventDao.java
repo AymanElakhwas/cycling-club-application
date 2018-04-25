@@ -103,7 +103,7 @@ public class EventDao {
 
         String updateStmt = "Update `event` SET status=" + status + " WHERE ID=" + eventId;
 
-        return helper.addDataToDB(updateStmt);
+        return helper.updateInDB(updateStmt);
 
     }
 
@@ -245,7 +245,7 @@ public class EventDao {
     }
 
 
-    public static boolean joinEvent(long eventId, long userId) {
+    public static long joinEvent(long eventId, long userId) {
         Helper helper = new Helper();
         helper.makeJDBCConnection();
         String insertStatement = "INSERT  INTO  user_event  (user_id , event_id ) VALUES (" + userId + "," + eventId + ")";

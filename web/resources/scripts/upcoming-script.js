@@ -25,6 +25,7 @@ $(function () {
         let btnVal = "Join";
 
         events.forEach(event => {
+            console.log(JSON.stringify(event));
             if (isEnrolled(user, event) || isOwner(user, event)) {
                 btnClass = "is-warning";
                 btnVal = "Enrolled";

@@ -13,9 +13,9 @@ public class Helper {
 
 
     private Connection dbConn;
-    private  PreparedStatement crunchifyPrepareStat;
+    private PreparedStatement crunchifyPrepareStat;
 
-    public  Helper(){
+    public Helper() {
 
     }
 
@@ -32,7 +32,7 @@ public class Helper {
 
         try {
 
-        this.dbConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cycling", "root", "admin");
+            this.dbConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cycling", "root", "admin");
             if (dbConn != null) {
                 log("MySQL Connection Success!");
             }
@@ -44,9 +44,21 @@ public class Helper {
 
     }
 
+    public boolean updateInDB(String updateStmt) {
+        try {
+            crunchifyPrepareStat = dbConn.prepareStatement(updateStmt);
+            // execute insert SQL statement
+            crunchifyPrepareStat.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
     public long addDataToDB(String pInsertStatement) {
 
-        long insertedId=0;
+        long insertedId = 0;
 
         try {
             crunchifyPrepareStat = dbConn.prepareStatement(pInsertStatement);
@@ -55,18 +67,18 @@ public class Helper {
 
             try (ResultSet generatedKeys = crunchifyPrepareStat.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                     insertedId = generatedKeys.getLong(1);
+                    insertedId = generatedKeys.getLong(1);
                 } else {
                     throw new SQLException("Creating user failed, no ID obtained.");
                 }
             }
 
-            return  insertedId;
+            return insertedId;
         } catch (
 
                 SQLException e) {
             e.printStackTrace();
-            return  insertedId;
+            return insertedId;
         }
     }
 
@@ -93,11 +105,11 @@ public class Helper {
             crunchifyPrepareStat.close();
             dbConn.close(); // connection close
         } catch (SQLException e) {
-             e.printStackTrace();
-         }
+            e.printStackTrace();
+        }
     }
 
-        public void log(String string) {
+    public void log(String string) {
         System.out.println(string);
 
     }

@@ -14,6 +14,7 @@ import java.util.List;
 public class EventService {
 
     public JSONArray getUpcomingEvents() {
+
         return JsonSerializer.serializeEvents(EventDao.getEvents());
     }
 
