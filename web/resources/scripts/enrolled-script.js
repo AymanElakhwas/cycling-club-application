@@ -2,8 +2,8 @@
  * @author Ayman Elakhwas
  */
 
-$(function () {
-
+const enrolledEventsClicked = function () {
+    $(".enrolled-pnl").empty();
     $.get("GetEnrolledEvents").done(function (data) {
         const events = data["events"];
         events.forEach(event => {
@@ -22,4 +22,4 @@ $(function () {
         //TODO add logic
         console.log("enrolled-event-record " + eventId);
     });
-});
+};

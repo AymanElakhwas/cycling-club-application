@@ -2,12 +2,11 @@
  * @author Ayman Elakhwas
  */
 
-$(function () {
-
+const myridesEventsClicked = function () {
+    $(".myrides-pnl").empty();
     $.get("GetMyRideEvents").done(function (data) {
         const events = data["events"];
         const user = data["user"];
-
 
         events.forEach(event => {
             const eventnumber = event.id;
@@ -90,4 +89,4 @@ $(function () {
         });
     });
 
-});
+};
