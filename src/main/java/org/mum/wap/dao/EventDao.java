@@ -1,5 +1,6 @@
 /**
  * @author Abdelrahman
+ * this class is used for retreiving data from data base
  */
 package org.mum.wap.dao;
 

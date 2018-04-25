@@ -1,4 +1,8 @@
-
+/**
+ * @author Abdelrahman
+ * This js file is used for controling the map and i made use of Google Api documentation
+ * https://developers.google.com/maps/documentation/javascript/reference/3.exp/
+ */
 var poly;
 var map;
 var markers=[];
