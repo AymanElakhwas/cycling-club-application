@@ -2,8 +2,8 @@
  * @author Ayman Elakhwas
  */
 
-$(function () {
-
+const liveEventsClicked = function () {
+    $(".live-pnl").empty();
     const isEnrolled = function (user, event) {
         let isUserEnrolled = false;
         event.participants.forEach(u => {
@@ -56,4 +56,4 @@ $(function () {
                 btn.removeClass("is-primary").addClass("is-warning").val("Enrolled");
             });
     });
-});
+};
