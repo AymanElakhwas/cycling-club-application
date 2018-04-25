@@ -25,6 +25,9 @@
             $(".view-panel").first().show();
             $("#dvAddEventContainer").hide();
             $(".event-details").show();
+            deleteMarkers();
+            mapDisabled=true;
+
         });
 
         $("#btnCreateEvent").click(function () {
