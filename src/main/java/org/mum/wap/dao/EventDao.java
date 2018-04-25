@@ -27,8 +27,10 @@ public class EventDao {
         helper.makeJDBCConnection();
         ResultSet rs = helper.getDataFromDB("SELECT * FROM `event` WHERE status = " + pStatus);
         List<Event> lstEvents = toEvent(rs);
-        if (lstEvents.isEmpty())
+        if (lstEvents.isEmpty()) {
+            helper.closeConnection();
             return lstEvents;
+        }
         String sql = "";
         for (Event event : lstEvents) {
             sql += event.getId() + ",";
@@ -126,8 +128,10 @@ public class EventDao {
         ResultSet rs = helper.getDataFromDB("SELECT * FROM `event` where ID=" + pId);
         List<Event> lstEvents = toEvent(rs);
 
-        if (lstEvents.isEmpty())
+        if (lstEvents.isEmpty()) {
+            helper.closeConnection();
             return null;
+        }
 
         String sql = "";
         for (Event event : lstEvents) {
@@ -162,8 +166,10 @@ public class EventDao {
         ResultSet rs = helper.getDataFromDB("SELECT * FROM `event` where ID=" + pId);
         List<Event> lstEvents = toEvent(rs);
 
-        if (lstEvents.isEmpty())
-            return null;
+        if (lstEvents.isEmpty()) {
+            helper.closeConnection();
+            return new ArrayList<>();
+        }
 
         String sql = "";
         for (Event event : lstEvents) {
@@ -183,8 +189,10 @@ public class EventDao {
         ResultSet rs = helper.getDataFromDB("SELECT * FROM `event` e INNER JOIN `user_event` ue on e.ID=ue.event_id and ue.user_id=" + userId);
         List<Event> lstEvents = toEvent(rs);
 
-        if (lstEvents.isEmpty())
-            return null;
+        if (lstEvents.isEmpty()) {
+            helper.closeConnection();
+            return lstEvents;
+        }
 
         String sql = "";
         for (Event event : lstEvents) {
@@ -218,8 +226,10 @@ public class EventDao {
         ResultSet rs = helper.getDataFromDB("SELECT * FROM `event` WHERE `start_time` > '" + datetime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))+"' order by start_time desc");
         List<Event> lstEvents = toEvent(rs);
 
-        if (lstEvents.isEmpty())
-            return null;
+        if (lstEvents.isEmpty()) {
+            helper.closeConnection();
+            return lstEvents;
+        }
 
         String sql = "";
         for (Event event : lstEvents) {
@@ -304,8 +314,10 @@ public class EventDao {
         ResultSet rs = helper.getDataFromDB("SELECT * FROM `event`where created_by=" + userId);
         List<Event> lstEvents = toEvent(rs);
 
-        if (lstEvents.isEmpty())
-            return null;
+        if (lstEvents.isEmpty()) {
+            helper.closeConnection();
+            return lstEvents;
+        }
 
         String sql = "";
         for (Event event : lstEvents) {
