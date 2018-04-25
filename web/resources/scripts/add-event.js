@@ -1,3 +1,7 @@
+/**
+ * @author Abdelrahman
+ * This js file is used for the add-event use case
+ */
 (function () {
 
     $(function () {

@@ -18,7 +18,7 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="resources/styles/master.css">
     <link rel="stylesheet" href="resources/styles/notifications.css">
-    <link rel="stylesheet" href="resources/styles/abdel.css">
+    <link rel="stylesheet" href="resources/styles/map-addevent.css">
     <script src="resources/scripts/master-script.js"></script>
     <script src="resources/scripts/upcoming-script.js"></script>
     <script src="resources/scripts/live-script.js"></script>
