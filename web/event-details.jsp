@@ -5,12 +5,10 @@
   Time: 5:35 PM
   To change this template use File | Settings | File Templates.
 --%>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
-<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-<%@taglib prefix="cyclist" uri="WEB-INF/custom.tld" %>
 
-<div class="section">
-    <div class="container" style="max-width: 30%;">
+
+<div class="section view-panel event-details-pnl">
+    <div class="container">
         <div class="content">
             <div class="field">
                 <label class="label">Route of Event</label>

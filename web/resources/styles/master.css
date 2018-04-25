@@ -12,8 +12,10 @@
 }
 
 .upcoming-pnl, .live-pnl, .enrolled-pnl, .myrides-pnl {
-    width: 55%;
+
 }
+
+
 
 .live-pnl, .enrolled-pnl, .myrides-pnl {
     display: none;
