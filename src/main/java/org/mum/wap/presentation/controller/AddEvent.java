@@ -33,7 +33,11 @@ public class AddEvent extends HttpServlet {
         //Instant instant = Instant.parse(date);
         //LocalDateTime result = LocalDateTime.ofInstant(instant, ZoneId.of(ZoneOffset.UTC.getId()));
 
-        LocalDateTime result= LocalDateTime.now();
+
+        String str =date.replace("T"," ");// "1986-04-08 12:30";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime result = LocalDateTime.parse(str, formatter);
+
        long eventId= EventDao.addEvent(title,description,result,0,"",1);
 
 
