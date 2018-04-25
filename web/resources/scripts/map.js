@@ -25,13 +25,27 @@ function initMap() {
 function addLatLng(event) {
     var path = poly.getPath();
 
-    // Because path is an MVCArray, we can simply append a new coordinate
-    // and it will automatically appear.
-    path.push(event.latLng);
+    addToPath(event.latLng);
+    addMarker(event.latLng);
+}
+
+function drawPath(points) {
+
+    for (var property1 in points) {
+        string1 = string1 + object1[property1];
+    }
+}
+
+function addToPath(latLng) {
+
+    path.push(latLng);
+
+}
+function addMarker(latLng) {
 
     // Add a new marker at the new plotted point on the polyline.
     var marker = new google.maps.Marker({
-        position: event.latLng,
+        position: latLng,
         title: '#' + path.getLength(),
         map: map
     });
