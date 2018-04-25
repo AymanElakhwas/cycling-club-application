@@ -5,7 +5,7 @@
   Time: 5:35 PM
   To change this template use File | Settings | File Templates.
 --%>
-
+<%@taglib prefix="cyclist" uri="WEB-INF/custom.tld" %>
 
 <div class="section view-panel event-details-pnl">
     <div class="container">
@@ -13,7 +13,9 @@
             <div class="field">
                 <label class="label has-background-light">Route of Event</label>
                 <div class="control">
-                    Place HOLDER
+                    <div class="add-event-map">
+                        <div id="map"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,9 +51,9 @@
                 <label class="label has-background-light">Participant</label>
                 <div class="control">
                     <div class="columns is-multiline is-centered is-8 participant-holder">
-                    <cyclist:FOREACH var="user" items="${Event.participants}">
+                    <cyclist:FOREACH var="participant" items="${Event.participants}">
                         <div class="column has-background-light" style="margin: 1px">
-                            ${user.name}
+                            ${participant.name}
                         </div>
                     </cyclist:FOREACH>
                     </div>
@@ -60,3 +62,10 @@
         </div>
     </div>
 </div>
+
+
+<script src="resources/scripts/generalmap.js"></script>
+<script src="resources/scripts/add-event.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk_JTdFX0pCAgSvyVK74dPaSQz1ybPH-E&callback=initGeneralMap">
+</script>
