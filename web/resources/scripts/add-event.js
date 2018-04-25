@@ -70,14 +70,8 @@
                     .fail(function() {
                         alert( "error" );
                     });
-
-
-
             }
         });
-
-
-
 
     });
 
