@@ -5,7 +5,8 @@ var generalmarkers=[];
 
 function initGeneralMap() {
 
-    generalmap = new google.maps.Map(document.getElementById('map'), {
+
+    generalmap = new google.maps.Map(document.getElementById('dvGeneralmap'), {
         zoom: 15,
         center: {lat: 41.006678, lng: -91.962879}  // Center the map on Chicago, USA.
     });

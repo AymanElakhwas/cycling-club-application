@@ -12,11 +12,7 @@
         <div class="content">
             <div class="field">
                 <label class="label has-background-light">Route of Event</label>
-                <div class="control">
-                    <div class="add-event-map">
-                        <div id="map"></div>
-                    </div>
-                </div>
+                <div id="map"></div>
             </div>
         </div>
         <div class="columns">
@@ -64,7 +60,3 @@
 </div>
 
 
-<script src="resources/scripts/generalmap.js"></script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk_JTdFX0pCAgSvyVK74dPaSQz1ybPH-E&callback=initGeneralMap">
-</script>
