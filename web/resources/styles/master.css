@@ -15,7 +15,9 @@
 
 }
 
-
+.section.view-panel.event-details-pnl .container{
+    width: inherit;
+}
 
 .live-pnl, .enrolled-pnl, .myrides-pnl {
     display: none;

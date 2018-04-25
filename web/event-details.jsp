@@ -45,19 +45,18 @@
             </div>
         </div>
         <div class="content">
-                <div class="field">
-                    <label class="label">Participant</label>
-                    <div class="control">
-                        <div class="columns is-multiline is-centered is-8">
-                        <cyclist:FOREACH var="user" items="${Event.participants}">
-                            <div class="column has-background-light" style="margin: 1px">
-                                ${user.name}
-                            </div>
-                        </cyclist:FOREACH>
+            <div class="field">
+                <label class="label">Participant</label>
+                <div class="control">
+                    <div class="columns is-multiline is-centered is-8">
+                    <cyclist:FOREACH var="user" items="${Event.participants}">
+                        <div class="column has-background-light" style="margin: 1px">
+                            ${user.name}
                         </div>
+                    </cyclist:FOREACH>
                     </div>
                 </div>
-
+            </div>
         </div>
     </div>
 </div>
