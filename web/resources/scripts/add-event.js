@@ -78,7 +78,14 @@ function setMapOnAll(map) {
             deleteMarkers()
         });
 
-            $("#btnSaveEvent").click(function () {
+
+        $("#btnCancelCreatingEvent").click(function () {
+            $("#navMain").show();
+            $(".view-panel").first().show();
+            $("#dvAddEventContainer").hide();
+        });
+
+        $("#btnSaveEvent").click(function () {
 
             let title=$("#txtTitle").val();
             let date=$("#dtStart").val();
@@ -114,16 +121,17 @@ function setMapOnAll(map) {
             if(title&&date&&markers.length>1) {
 
                 $.post( "http://localhost:8080/AddEvent", { "title": title, "date": date,"description":description,"markers":JSON.stringify({"RoutePoints":points}) } ) .done(function() {
-                    alert( "second success" );
+
+                    $("#navMain").show();
+                    $(".view-panel").first().show();
+                    $("#dvAddEventContainer").hide();
                 })
                     .fail(function() {
                         alert( "error" );
                     });
 
 
-                $("#navMain").show();
-                $(".view-panel").first().show();
-                $("#dvAddEventContainer").hide();
+
             }
         });
 

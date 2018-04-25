@@ -6,10 +6,14 @@
 
     <mytag:Head theclass='panel-heading' words='Create Event' />
 
-
     <div class="add-event-map">
         <div id="floating-panel">
-            <a class="button is-danger" id="btnDeletePath">Delete Path</a>
+            <a class="button is-danger" id="btnDeletePath">
+                    <span class="icon is-small">
+                         <i class="fas fa-times"></i>
+                    </span>
+                <span>Cancel</span>
+            </a>
         </div>
         <div id="map"></div>
         <label id="lblMapError" style="color: red;"></label>
@@ -37,7 +41,13 @@
                 </div>
             </div>
 
-                <div style="text-align: right;">
+                <div>
+                    <a class="button is-danger is-outlined" id="btnCancelCreatingEvent">
+                        <span>Cancel</span>
+                        <span class="icon is-small">
+                    <svg class="svg-inline--fa fa-times fa-w-12" aria-hidden="true" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z"></path></svg><!-- <i class="fas fa-times"></i> -->
+                </span>
+                    </a>
 
                     <a class="button is-link" id="btnSaveEvent">
                     <span class="icon is-small">
@@ -45,6 +55,7 @@
                     </span>
                     <span>Save</span>
                     </a>
+
                 </div>
         </div>
 
