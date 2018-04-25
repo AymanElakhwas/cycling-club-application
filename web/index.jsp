@@ -26,12 +26,6 @@
     <script src="resources/scripts/myrides-script.js"></script>
     <!--script src="resources/scripts/notification.js"></script-->
 
-    <script src="resources/scripts/map.js"></script>
-
-
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk_JTdFX0pCAgSvyVK74dPaSQz1ybPH-E&callback=initGeneralMap">
-    </script>
 
 
 </head>
@@ -126,5 +120,7 @@
     </div>
 </section>
 
+
 </body>
+
 </html>
