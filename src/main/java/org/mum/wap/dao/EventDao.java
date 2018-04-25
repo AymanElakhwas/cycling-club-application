@@ -214,7 +214,7 @@ public class EventDao {
         Helper helper = new Helper();
         helper.makeJDBCConnection();
         LocalDateTime datetime = LocalDateTime.now();
-        ResultSet rs = helper.getDataFromDB("SELECT * FROM `event` WHERE `start_time` > '" + datetime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))+"'");
+        ResultSet rs = helper.getDataFromDB("SELECT * FROM `event` WHERE `start_time` > '" + datetime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))+"' order by start_time desc");
         List<Event> lstEvents = toEvent(rs);
 
         if (lstEvents.isEmpty())

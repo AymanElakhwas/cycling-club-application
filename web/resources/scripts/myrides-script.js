@@ -24,7 +24,7 @@ const myridesEventsClicked = function () {
             }
 
             const elem = "<a class='panel-block myrides-event-record' data-event-id='" + eventnumber + "'><div class='container'><div class='level'><div class='level-left'><div class='level-item'><span class='panel-icon'><i class='fas fa-flag-checkered'></i></i></span>" + event.title + " "
-                + event.dateTime + "</div></div><div id='myrides-event-buttons-container' class='level-right'>" + btnMarkup + "</div></div></div></a>";
+                +  "</div></div><div id='myrides-event-buttons-container' class='level-right'>" + btnMarkup + "</div></div></div></a>";
             $(".myrides-pnl").append(elem);
         });
         $(".myrides-pnl").children("a").first().click();
