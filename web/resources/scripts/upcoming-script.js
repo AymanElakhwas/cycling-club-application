@@ -48,7 +48,19 @@ const upcomingEventsClicked = function () {
         $("a.upcoming-event-record").removeClass("is-active");
         $(this).addClass("is-active");
         $('.column.event-details').empty();
-        $.get("/EventDetails?eventid="+eventId).done(function(data){$('.column.event-details').append(data)});
+        $.get("/EventDetails?eventid="+eventId).done(
+            function(data)
+            {
+                $('.column.event-details').append(data)
+
+                $.get("/EventRoutePoints?eventid="+eventId).done(
+                    function(routePoints)
+                    {
+                       alert("Es7a Yaba")
+                        console.log("7aaamo")
+                        console.log(routePoints)
+                    });
+            });
         console.log("upcoming-event-record " + eventId);
 
     });
