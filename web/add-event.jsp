@@ -49,7 +49,7 @@
                 </span>
                     </a>
 
-                    <a class="button is-link" id="btnSaveEvent">
+                    <a class="button is-link" id="btnCreateEvent">
                     <span class="icon is-small">
                          <i class="fas fa-check"></i>
                     </span>
