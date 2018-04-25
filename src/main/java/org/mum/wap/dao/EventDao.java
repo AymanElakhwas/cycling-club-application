@@ -177,3 +177,4 @@ public class EventDao {
         String insertStatement = "INSERT  INTO  user_event  (user_id , event_id ) VALUES (" + userId + "," + eventId + ");";
     }
 }
+/****/
