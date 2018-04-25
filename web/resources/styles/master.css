@@ -15,10 +15,21 @@
 
 }
 
+.event-details .section {
+    padding: 0;
+    border: solid 1px #dbdbdb;
+    border-radius: 4px;
+    text-align: center;
+}
+.event-details .section div{
+    text-align: center;
+}
 .section.view-panel.event-details-pnl .container{
     width: inherit;
 }
-
+.event-details-pnl .participant-holder{
+    padding:10px;
+}
 .live-pnl, .enrolled-pnl, .myrides-pnl {
     display: none;
 }

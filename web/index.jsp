@@ -113,8 +113,8 @@
                 <jsp:include page="myride-events.jsp"/>
                 <jsp:include page="add-event.jsp"/>
             </div>
-            <div class="column is-5">
-                <jsp:include page="event-details.jsp"/>
+            <div class="column is-5 event-details">
+                <%--<jsp:include page="event-details.jsp"/>--%>
             </div>
         </div>
     </div>

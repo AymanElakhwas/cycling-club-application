@@ -28,5 +28,4 @@ public class EventDetailsServlet extends HttpServlet {
         request.getRequestDispatcher("event-details.jsp").forward(request,response);
 
     }
-
 }
