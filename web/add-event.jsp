@@ -19,14 +19,14 @@
             <div class="field">
                 <label class="label" id="lblTitle">title</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Event Title" id="txtTitle" required>
+                    <input class="input is-primary" type="text" placeholder="Event Title" id="txtTitle" required>
                 </div>
             </div>
 
             <div class="field">
                 <label class="label" id="lblEventDate">start date</label>
                 <div class="control">
-                    <input class="input" type="datetime-local" id="dtStart" required>
+                    <input class="input is-primary" type="datetime-local" id="dtStart" required>
                 </div>
             </div>
 
@@ -39,7 +39,7 @@
 
                 <div style="text-align: right;">
 
-                    <a class="button is-success" id="btnSaveEvent">
+                    <a class="button is-link" id="btnSaveEvent">
                     <span class="icon is-small">
                          <i class="fas fa-check"></i>
                     </span>
