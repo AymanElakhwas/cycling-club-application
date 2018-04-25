@@ -23,8 +23,8 @@ public class EventDetailsServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        int eventid = Integer.valueOf(request.getParameter("eventid"));
-        List<Event> event = EventDao.getEvent_Id(1);
-        request.setAttribute("Event" , event.get(0));
+        Event event = EventDao.getEventById(1);
+        request.setAttribute("Event" , event);
         request.getRequestDispatcher("event-details.jsp").forward(request,response);
 
     }
