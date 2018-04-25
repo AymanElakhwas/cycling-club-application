@@ -41,8 +41,9 @@ public class EventService {
         EventDao.updateEventStatus(eventId, 1);
     }
 
-    public void raiseFlagForEvent(int eventId) {
-        EventDao.updateEventStatus(eventId, 2);
+    public void raiseFlagForEvent(int eventId, String location) {
+        EventDao.updateEventStatusAndLocation(eventId, 2, location);
+
     }
 
     public void finishEvent(int eventId) {
