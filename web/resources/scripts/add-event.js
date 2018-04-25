@@ -63,6 +63,9 @@
                     $("#navMain").show();
                     $(".view-panel").first().show();
                     $("#dvAddEventContainer").hide();
+
+                    upcomingEventsClicked();
+                    alert("Done")
                 })
                     .fail(function() {
                         alert( "error" );
