@@ -34,7 +34,9 @@ const myridesEventsClicked = function () {
         $("a.myrides-event-record").removeClass("is-active");
         $(this).addClass("is-active");
         $('.column.event-details').empty();
-        $.get("/EventDetails?eventid="+eventId).done(function(data){$('.column.event-details').append(data)});
+        $.get("/EventDetails?eventid=" + eventId).done(function (data) {
+            $('.column.event-details').append(data)
+        });
         console.log("upcoming-event-record " + eventId);
     });
 
@@ -66,17 +68,32 @@ const myridesEventsClicked = function () {
     });
 
     $(document).on("click", "input.flag-my-event-btn", function (event) {
+        event.stopPropagation();
         const btn = $(this);
         const btnsContainer = btn.parent().parent();
         const eventId = btn.attr("data-event-id");
-        const location = "";
-        event.stopPropagation();
-        $.get("RaiseFlagForEvent", {"eventId": eventId, "location":location}).done(function () {
-            const btnMarkup = "<div class='level-item'><input type='button' value='Resume' class='button is-primary resume-my-event-btn' data-event-id='" + eventId + "'/></div>";
-            btnsContainer.empty();
-            btnsContainer.append(btnMarkup)
-        });
+        getLocation(eventId);
     });
+
+    function getLocation(eventId) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(raiseFlag(eventId));
+        } else {
+            alert("Geolocation is not supported or not permitted.");
+        }
+    }
+
+    function raiseFlag(eventId) {
+        return function (position) {
+            const location = position.coords.latitude + "," + position.coords.longitude;
+            $.get("RaiseFlagForEvent", {"eventId": eventId, "location": location}).done(function () {
+                const btnMarkup = "<div class='level-item'><input type='button' value='Resume' class='button is-primary resume-my-event-btn' data-event-id='" + eventId + "'/></div>";
+                btnsContainer.empty();
+                btnsContainer.append(btnMarkup)
+            });
+        }
+    }
+
 
     $(document).on("click", "input.finish-my-event-btn", function (event) {
         const btn = $(this);

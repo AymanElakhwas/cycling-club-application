@@ -9,10 +9,16 @@
 
 <div class="section view-panel event-details-pnl">
     <div class="container">
-        <div class="content">
-            <div class="field">
-                <label class="label has-background-light">Route of Event</label>
-                <div id="map"></div>
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label has-background-light">Route of Event</label>
+                    <div class="control">
+                        <%--<div class="add-event-map">--%>
+                            <%--<div id="map"> </div>--%>
+                        <%--</div>--%>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="columns">
@@ -42,16 +48,18 @@
                 </div>
             </div>
         </div>
-        <div class="content">
-            <div class="field">
-                <label class="label has-background-light">Participant</label>
-                <div class="control">
-                    <div class="columns is-multiline is-centered is-8 participant-holder">
-                    <cyclist:FOREACH var="participant" items="${Event.participants}">
-                        <div class="column has-background-light" style="margin: 1px">
-                            ${participant.name}
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label has-background-light">Participant</label>
+                    <div class="control">
+                        <div class="columns is-multiline is-centered is-8 participant-holder">
+                            <cyclist:FOREACH var="participant" items="${Event.participants}">
+                                <div class="column has-background-light" style="margin: 1px">
+                                        ${participant.name}
+                                </div>
+                            </cyclist:FOREACH>
                         </div>
-                    </cyclist:FOREACH>
                     </div>
                 </div>
             </div>
