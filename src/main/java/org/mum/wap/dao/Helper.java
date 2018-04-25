@@ -1,5 +1,6 @@
 /**
  * @author Abdelrahman
+ * This class is used for opening and closing connections to db and for having the main get and update methods
  */
 package org.mum.wap.dao;
 

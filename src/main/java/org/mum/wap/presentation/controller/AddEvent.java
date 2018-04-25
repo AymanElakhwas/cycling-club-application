@@ -1,5 +1,8 @@
 package org.mum.wap.presentation.controller;
-
+/**
+ * @author Abdelrahman
+ * this is the servlet class for adding new event and contains both of get and post methods
+ */
 
 import org.mum.wap.dao.EventDao;
 import org.mum.wap.dao.RoutePointDao;
