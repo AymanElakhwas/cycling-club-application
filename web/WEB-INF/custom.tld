@@ -51,4 +51,14 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    <tag>
+        <name>FOREACH</name>
+        <tag-class>org.mum.wap.presentation.customtag.ForEachTagHandler</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>items</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 </taglib>
