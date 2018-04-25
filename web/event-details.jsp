@@ -50,7 +50,13 @@
                 <div class="field">
                     <label class="label">Participant</label>
                     <div class="control">
-                        <cyclist:FOREACH items="${Event.participants}"/>
+                        <div class="columns is-multiline is-centered is-8">
+                        <cyclist:FOREACH var="user" items="${Event.participants}">
+                            <div class="column has-background-light" style="margin: 1px">
+                                ${user.name}
+                            </div>
+                        </cyclist:FOREACH>
+                        </div>
                     </div>
                 </div>
 

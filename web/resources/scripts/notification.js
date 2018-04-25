@@ -27,7 +27,7 @@ $(function(){
         if(data.length>0) {
             $.each(data,function(index,value){
                 console.log(value);
-                elem += "<div class=\"dropdown-item\">"+" "+value.title+" "+value.description+"</div>";
+                elem += "<div class=\"dropdown-item\">"+" "+value.title+" "+value.description+" "+value.currentlocation+"</div>";
             })
             $(".notifications .notification-item").append(elem);
             $(".notifications .dropdown.is-hoverable").removeClass('nodisplay');

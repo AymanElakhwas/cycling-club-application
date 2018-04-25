@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @Autho
  */
-@WebServlet("/EventDetailsServlet")
+@WebServlet("/EventDetails")
 public class EventDetailsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
