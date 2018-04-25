@@ -21,23 +21,16 @@ public class NotificationService {
     }
 
     public JSONObject[] getEmergencyNotification(){
-        //        private long id;
-//        private String title;
-//        private String description;
-//        private LocalDate startDateTime;
-//        private int status;
-//        private User owner;
-//        private List<User> participants = new ArrayList<>();
-//        private List<RoutePoint> route = new ArrayList<>();
 
         List<Event> eventlist = EventDao.getEventBystatus(2);
         JSONObject[] jsonEventList = new JSONObject[eventlist.size()];
         int count = 0;
-        for(Event event1: eventlist){
+        for(Event event: eventlist){
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("id",event1.getId());
-            jsonObject.put("title",event1.getTitle());
-            jsonObject.put("description",event1.getDescription());
+            jsonObject.put("id",event.getId());
+            jsonObject.put("title",event.getTitle());
+            jsonObject.put("description",event.getDescription());
+            jsonObject.put("currentlocation",event.getCurrentLocation());
             jsonEventList[count] = jsonObject;
             count++;
         }
