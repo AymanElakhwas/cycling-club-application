@@ -43,7 +43,8 @@ const liveEventsClicked = function () {
         const eventId = $(this).attr("data-event-id");
         $("a.live-event-record").removeClass("is-active");
         $(this).addClass("is-active");
-        //TODO add logic
+        $('.column.event-details').empty();
+        $.get("/EventDetails?eventid="+eventId).done(function(data){$('.column.event-details').append(data)});
         console.log("live-event-record " + eventId);
     });
 
