@@ -12,7 +12,7 @@
         <div class="content">
             <div class="field">
                 <label class="label has-background-light">Route of Event</label>
-                        <div id="map"></div>
+                <div id="map"></div>
             </div>
         </div>
         <div class="columns">
