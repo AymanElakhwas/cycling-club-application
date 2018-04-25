@@ -23,11 +23,11 @@
             $("#dvAddEventContainer").hide();
         });
 
-        $("#btnSaveEvent").click(function () {
+        $("#btnCreateEvent").click(function () {
 
             let title=$("#txtTitle").val();
             let date=$("#dtStart").val();
-                let description=$("#txtDescription").val();
+            let description=$("#txtDescription").val();
 
 
             if(!title){
@@ -63,6 +63,9 @@
                     $("#navMain").show();
                     $(".view-panel").first().show();
                     $("#dvAddEventContainer").hide();
+
+                    upcomingEventsClicked();
+                    alert("Done")
                 })
                     .fail(function() {
                         alert( "error" );
