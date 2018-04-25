@@ -15,7 +15,7 @@ public class EventService {
 
     public JSONArray getUpcomingEvents() {
 
-        return JsonSerializer.serializeEvents(EventDao.getEvents());
+        return JsonSerializer.serializeEvents(EventDao.getUpcomingEvents());
     }
 
     public void joinEvent(int eventId, int userId) {
