@@ -12,7 +12,7 @@
                     <span class="icon is-small">
                          <i class="fas fa-times"></i>
                     </span>
-                <span>Cancel</span>
+                <span>Clear</span>
             </a>
         </div>
         <div id="map"></div>
