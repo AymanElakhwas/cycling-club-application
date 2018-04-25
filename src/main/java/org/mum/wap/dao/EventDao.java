@@ -33,16 +33,19 @@ public class EventDao {
         for (Event event : lstEvents) {
             sql += event.getId() + ",";
         }
+
         ResultSet rs2 = helper.getDataFromDB("SELECT * FROM `event_rout` WHERE event_id in(" + sql.substring(0, sql.length() - 1) + ")");
+
         List<RoutePoint> lstRoadPoints = toRoadPoint(rs2, lstEvents);
+
         for (Event event : lstEvents) {
-            ResultSet rsUser = helper.getDataFromDB("SELECT * FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id=" + event.getId());
+            ResultSet rsParticipants = helper.getDataFromDB("SELECT u.ID,u.name,u.img,u.password,u.username FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id=" + event.getId());
             ResultSet rsUser2 = helper.getDataFromDB("SELECT * FROM `user` WHERE ID=" + event.getCreated_by());
 
             List<User> lstUSer2 = UserDao.toUser(rsUser2);
-            List<User> lstUSer = UserDao.toUser(rsUser);
+            List<User> lstParticipants = UserDao.toUser(rsParticipants);
 
-            event.setParticipants(lstUSer);
+            event.setParticipants(lstParticipants);
             event.setRoute(lstRoadPoints.stream().filter(x -> x.getEvent().getId() == event.getId()).collect(Collectors.toList()));
             event.setOwner(lstUSer2.stream().filter(z -> z.getId() == event.getCreated_by()).collect(Collectors.toList()).get(0));
         }
@@ -69,13 +72,13 @@ public class EventDao {
         List<RoutePoint> lstRoadPoints = toRoadPoint(rs2, lstEvents);
 
         for (Event event : lstEvents) {
-            ResultSet rsUser = helper.getDataFromDB("SELECT * FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id=" + event.getId());
+            ResultSet rsParticipants = helper.getDataFromDB("SELECT u.ID,u.name,u.img,u.password,u.username FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id=" + event.getId());
             ResultSet rsUser2 = helper.getDataFromDB("SELECT * FROM `user` WHERE ID=" + event.getCreated_by());
 
             List<User> lstUSer2 = UserDao.toUser(rsUser2);
-            List<User> lstUSer = UserDao.toUser(rsUser);
+            List<User> lstParticipants = UserDao.toUser(rsParticipants);
 
-            event.setParticipants(lstUSer);
+            event.setParticipants(lstParticipants);
             event.setRoute(lstRoadPoints.stream().filter(x -> x.getEvent().getId() == event.getId()).collect(Collectors.toList()));
             event.setOwner(lstUSer2.stream().filter(z -> z.getId() == event.getCreated_by()).collect(Collectors.toList()).get(0));
         }
@@ -121,19 +124,23 @@ public class EventDao {
         for (Event event : lstEvents) {
             sql += event.getId() + ",";
         }
+
         ResultSet rs2 = helper.getDataFromDB("SELECT * FROM `event_rout` WHERE event_id in(" + sql.substring(0, sql.length() - 1) + ")");
+
         List<RoutePoint> lstRoadPoints = toRoadPoint(rs2, lstEvents);
+
         for (Event event : lstEvents) {
-            ResultSet rsUser = helper.getDataFromDB("SELECT * FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id=" + event.getId());
+            ResultSet rsParticipants = helper.getDataFromDB("SELECT u.ID,u.name,u.img,u.password,u.username FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id=" + event.getId());
             ResultSet rsUser2 = helper.getDataFromDB("SELECT * FROM `user` WHERE ID=" + event.getCreated_by());
 
             List<User> lstUSer2 = UserDao.toUser(rsUser2);
-            List<User> lstUSer = UserDao.toUser(rsUser);
+            List<User> lstParticipants = UserDao.toUser(rsParticipants);
 
-            event.setParticipants(lstUSer);
+            event.setParticipants(lstParticipants);
             event.setRoute(lstRoadPoints.stream().filter(x -> x.getEvent().getId() == event.getId()).collect(Collectors.toList()));
             event.setOwner(lstUSer2.stream().filter(z -> z.getId() == event.getCreated_by()).collect(Collectors.toList()).get(0));
         }
+
         helper.closeConnection();
         return lstEvents.get(0);
     }
@@ -151,19 +158,23 @@ public class EventDao {
         for (Event event : lstEvents) {
             sql += event.getId() + ",";
         }
+
         ResultSet rs2 = helper.getDataFromDB("SELECT * FROM `event_rout` WHERE event_id in(" + sql.substring(0, sql.length() - 1) + ")");
+
         List<RoutePoint> lstRoadPoints = toRoadPoint(rs2, lstEvents);
+
         for (Event event : lstEvents) {
-            ResultSet rsUser = helper.getDataFromDB("SELECT * FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id=" + event.getId());
+            ResultSet rsParticipants = helper.getDataFromDB("SELECT u.ID,u.name,u.img,u.password,u.username FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id=" + event.getId());
             ResultSet rsUser2 = helper.getDataFromDB("SELECT * FROM `user` WHERE ID=" + event.getCreated_by());
 
             List<User> lstUSer2 = UserDao.toUser(rsUser2);
-            List<User> lstUSer = UserDao.toUser(rsUser);
+            List<User> lstParticipants = UserDao.toUser(rsParticipants);
 
-            event.setParticipants(lstUSer);
+            event.setParticipants(lstParticipants);
             event.setRoute(lstRoadPoints.stream().filter(x -> x.getEvent().getId() == event.getId()).collect(Collectors.toList()));
             event.setOwner(lstUSer2.stream().filter(z -> z.getId() == event.getCreated_by()).collect(Collectors.toList()).get(0));
         }
+
         helper.closeConnection();
         return lstEvents;
     }
@@ -182,19 +193,23 @@ public class EventDao {
         for (Event event : lstEvents) {
             sql += event.getId() + ",";
         }
+
         ResultSet rs2 = helper.getDataFromDB("SELECT * FROM `event_rout` WHERE event_id in(" + sql.substring(0, sql.length() - 1) + ")");
+
         List<RoutePoint> lstRoadPoints = toRoadPoint(rs2, lstEvents);
+
         for (Event event : lstEvents) {
-            ResultSet rsUser = helper.getDataFromDB("SELECT * FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id=" + event.getId());
+            ResultSet rsParticipants = helper.getDataFromDB("SELECT u.ID,u.name,u.img,u.password,u.username FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id=" + event.getId());
             ResultSet rsUser2 = helper.getDataFromDB("SELECT * FROM `user` WHERE ID=" + event.getCreated_by());
 
             List<User> lstUSer2 = UserDao.toUser(rsUser2);
-            List<User> lstUSer = UserDao.toUser(rsUser);
+            List<User> lstParticipants = UserDao.toUser(rsParticipants);
 
-            event.setParticipants(lstUSer);
+            event.setParticipants(lstParticipants);
             event.setRoute(lstRoadPoints.stream().filter(x -> x.getEvent().getId() == event.getId()).collect(Collectors.toList()));
             event.setOwner(lstUSer2.stream().filter(z -> z.getId() == event.getCreated_by()).collect(Collectors.toList()).get(0));
         }
+
         helper.closeConnection();
         return lstEvents;
     }
@@ -265,19 +280,23 @@ public class EventDao {
         for (Event event : lstEvents) {
             sql += event.getId() + ",";
         }
+
         ResultSet rs2 = helper.getDataFromDB("SELECT * FROM `event_rout` WHERE event_id in(" + sql.substring(0, sql.length() - 1) + ")");
+
         List<RoutePoint> lstRoadPoints = toRoadPoint(rs2, lstEvents);
+
         for (Event event : lstEvents) {
-            ResultSet rsUser = helper.getDataFromDB("SELECT * FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id=" + event.getId());
+            ResultSet rsParticipants = helper.getDataFromDB("SELECT u.ID,u.name,u.img,u.password,u.username FROM `user_event` ue inner join user u on u.ID=ue.user_id and ue.event_id=" + event.getId());
             ResultSet rsUser2 = helper.getDataFromDB("SELECT * FROM `user` WHERE ID=" + event.getCreated_by());
 
             List<User> lstUSer2 = UserDao.toUser(rsUser2);
-            List<User> lstUSer = UserDao.toUser(rsUser);
+            List<User> lstParticipants = UserDao.toUser(rsParticipants);
 
-            event.setParticipants(lstUSer);
+            event.setParticipants(lstParticipants);
             event.setRoute(lstRoadPoints.stream().filter(x -> x.getEvent().getId() == event.getId()).collect(Collectors.toList()));
             event.setOwner(lstUSer2.stream().filter(z -> z.getId() == event.getCreated_by()).collect(Collectors.toList()).get(0));
         }
+
         helper.closeConnection();
         return lstEvents;
     }
