@@ -114,8 +114,7 @@ public class EventDao {
         Helper helper = new Helper();
         helper.makeJDBCConnection();
 
-        String updateStmt = "Update `event` SET status=" + status + ",location="+location+" WHERE ID=" + eventId;
-
+        String updateStmt = "Update `event` SET status=" + status + " , current_location='"+location+"' WHERE ID=" + eventId;
         return helper.updateInDB(updateStmt);
 
     }

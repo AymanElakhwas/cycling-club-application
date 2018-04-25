@@ -3,7 +3,7 @@
  */
 
 const liveEventsClicked = function () {
-    $(".live-pnl").empty();
+    $(".live-pnl").empty().append("<p class='panel-heading'>Live Rides</p>");
     const isEnrolled = function (user, event) {
         let isUserEnrolled = false;
         event.participants.forEach(u => {
@@ -37,14 +37,14 @@ const liveEventsClicked = function () {
                 + event.dateTime + "</div></div><div class='level-right'><div class='level-item'><input type='button' value='" + btnVal + "' class='button " + btnClass + " join-live-event-btn' data-event-id='" + eventnumber + "'/></div></div></div></div></a>";
             $(".live-pnl").append(elem);
         });
+        $(".live-pnl").children("a").first().click();
     });
 
     $(document).on("click", "a.live-event-record", function (event) {
         const eventId = $(this).attr("data-event-id");
         $("a.live-event-record").removeClass("is-active");
         $(this).addClass("is-active");
-        $('.column.event-details').empty();
-        $.get("/EventDetails?eventid="+eventId).done(function(data){$('.column.event-details').append(data)});
+        $.get("/EventDetails?eventid="+eventId).done(function(data){$('.column.event-details').empty().append(data)});
         console.log("live-event-record " + eventId);
     });
 

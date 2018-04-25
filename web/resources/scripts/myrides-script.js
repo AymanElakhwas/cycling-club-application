@@ -3,7 +3,7 @@
  */
 
 const myridesEventsClicked = function () {
-    $(".myrides-pnl").empty();
+    $(".myrides-pnl").empty().append("<p class='panel-heading'>My Rides</p>");
     $.get("GetMyRideEvents").done(function (data) {
         const events = data["events"];
         const user = data["user"];
@@ -27,15 +27,15 @@ const myridesEventsClicked = function () {
                 + event.dateTime + "</div></div><div id='myrides-event-buttons-container' class='level-right'>" + btnMarkup + "</div></div></div></a>";
             $(".myrides-pnl").append(elem);
         });
+        $(".myrides-pnl").children("a").first().click();
     });
 
     $(document).on("click", "a.myrides-event-record", function (event) {
         const eventId = $(this).attr("data-event-id");
         $("a.myrides-event-record").removeClass("is-active");
         $(this).addClass("is-active");
-        $('.column.event-details').empty();
         $.get("/EventDetails?eventid=" + eventId).done(function (data) {
-            $('.column.event-details').append(data)
+            $('.column.event-details').empty().append(data)
         });
         console.log("upcoming-event-record " + eventId);
     });
@@ -72,20 +72,22 @@ const myridesEventsClicked = function () {
         const btn = $(this);
         const btnsContainer = btn.parent().parent();
         const eventId = btn.attr("data-event-id");
-        getLocation(eventId);
+        btn.prop('disabled', true);
+
+        getLocation(eventId, btnsContainer);
     });
 
-    function getLocation(eventId) {
+    function getLocation(eventId, btnsContainer) {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(raiseFlag(eventId));
+            navigator.geolocation.getCurrentPosition(raiseFlag(eventId, btnsContainer));
         } else {
             alert("Geolocation is not supported or not permitted.");
         }
     }
 
-    function raiseFlag(eventId) {
+    function raiseFlag(eventId, btnsContainer) {
         return function (position) {
-            const location = position.coords.latitude + "," + position.coords.longitude;
+            const location = position.coords.latitude.toFixed(6) + "," + position.coords.longitude.toFixed(6);
             $.get("RaiseFlagForEvent", {"eventId": eventId, "location": location}).done(function () {
                 const btnMarkup = "<div class='level-item'><input type='button' value='Resume' class='button is-primary resume-my-event-btn' data-event-id='" + eventId + "'/></div>";
                 btnsContainer.empty();

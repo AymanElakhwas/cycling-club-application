@@ -3,7 +3,7 @@
  */
 
 const enrolledEventsClicked = function () {
-    $(".enrolled-pnl").empty();
+    $(".enrolled-pnl").empty().append("<p class='panel-heading'>Enrolled Rides</p>");
     $.get("GetEnrolledEvents").done(function (data) {
         const events = data["events"];
         events.forEach(event => {
@@ -13,14 +13,14 @@ const enrolledEventsClicked = function () {
                 + event.dateTime + "</div></div><div class='level-right'><div class='level-item'><input type='button' class='button enrolled-event-btn'/></div></div></div></div></a>";
             $(".enrolled-pnl").append(elem);
         });
+        $(".enrolled-pnl").children("a").first().click();
     });
 
     $(document).on("click", "a.enrolled-event-record", function (event) {
         const eventId = $(this).attr("data-event-id");
         $("a.enrolled-event-record").removeClass("is-active");
         $(this).addClass("is-active");
-        $('.column.event-details').empty();
-        $.get("/EventDetails?eventid="+eventId).done(function(data){$('.column.event-details').append(data)});
+        $.get("/EventDetails?eventid="+eventId).done(function(data){$('.column.event-details').empty().append(data)});
         console.log("enrolled-event-record " + eventId);
     });
 };

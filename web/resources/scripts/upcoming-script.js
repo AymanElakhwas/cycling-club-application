@@ -3,7 +3,7 @@
  */
 
 const upcomingEventsClicked = function () {
-    $(".upcoming-pnl").empty();
+    $(".upcoming-pnl").empty().append("<p class='panel-heading'>Upcoming Rides</p>");
     const isEnrolled = function (user, event) {
         let isUserEnrolled = false;
         event.participants.forEach(u => {
@@ -20,14 +20,10 @@ const upcomingEventsClicked = function () {
         const events = data["events"];
         const user = data["user"];
 
-        console.log(data);
-
         let btnClass = "is-primary";
         let btnVal = "Join";
 
         events.forEach(event => {
-            // alert("E:"+event.id+" U:"+user.id+" enrolled:"+isEnrolled(user, event));
-            console.log(JSON.stringify(event));
             if (isEnrolled(user, event) || isOwner(user, event)) {
                 btnClass = "is-warning";
                 btnVal = "Enrolled";
@@ -41,15 +37,15 @@ const upcomingEventsClicked = function () {
                 + event.dateTime + "</div></div><div class='level-right'><div class='level-item'><input type='button' value='" + btnVal + "' class='button " + btnClass + " join-upcoming-event-btn' data-event-id='" + eventnumber + "'/></div></div></div></div></a>";
             $(".upcoming-pnl").append(elem);
         });
+        $(".upcoming-pnl").children("a").first().click();
     });
 
     $(document).on("click", "a.upcoming-event-record", function (event) {
         const eventId = $(this).attr("data-event-id");
         $("a.upcoming-event-record").removeClass("is-active");
         $(this).addClass("is-active");
-        $('.column.event-details').empty();
-        $.get("/EventDetails?eventid="+eventId).done(function(data){$('.column.event-details').append(data)});
-        console.log("upcoming-event-record " + eventId);
+        $.get("/EventDetails?eventid="+eventId).done(function(data){$('.column.event-details').empty().append(data)});
+
 
     });
 
