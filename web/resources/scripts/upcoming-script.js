@@ -5,10 +5,11 @@
 $(function () {
 
     const isEnrolled = function (user, event) {
+        let isUserEnrolled = false;
         event.participants.forEach(u => {
-            if (u.id == user.id) return true;
+            if (u.id == user.id) isUserEnrolled = true;
         });
-        return false;
+        return isUserEnrolled;
     }
 
     const isOwner = function (user, event) {
@@ -25,6 +26,7 @@ $(function () {
         let btnVal = "Join";
 
         events.forEach(event => {
+            // alert("E:"+event.id+" U:"+user.id+" enrolled:"+isEnrolled(user, event));
             console.log(JSON.stringify(event));
             if (isEnrolled(user, event) || isOwner(user, event)) {
                 btnClass = "is-warning";

@@ -5,10 +5,11 @@
 $(function () {
 
     const isEnrolled = function (user, event) {
+        let isUserEnrolled = false;
         event.participants.forEach(u => {
-            if (u.id == user.id) return true;
+            if (u.id == user.id) isUserEnrolled = true;
         });
-        return false;
+        return isUserEnrolled;
     }
 
     const isOwner = function (user, event) {
