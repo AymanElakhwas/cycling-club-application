@@ -26,6 +26,12 @@
     <script src="resources/scripts/myrides-script.js"></script>
     <!--script src="resources/scripts/notification.js"></script-->
 
+    <script src="resources/scripts/map.js"></script>
+
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk_JTdFX0pCAgSvyVK74dPaSQz1ybPH-E&callback=initGeneralMap">
+    </script>
 
 
 </head>
@@ -111,7 +117,7 @@
                 <jsp:include page="live-events.jsp"/>
                 <jsp:include page="enrolled-events.jsp"/>
                 <jsp:include page="myride-events.jsp"/>
-                <jsp:include page="add-event.jsp"/>
+                <!--jsp:include page="add-event.jsp"/-->
             </div>
             <div class="column is-5 event-details">
                 <%--<jsp:include page="event-details.jsp"/>--%>
