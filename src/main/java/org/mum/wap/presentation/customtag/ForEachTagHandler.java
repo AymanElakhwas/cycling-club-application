@@ -20,6 +20,7 @@ public class ForEachTagHandler extends SimpleTagSupport {
 
     public void doTag() throws IOException, JspException {
         for(Object item : items) {
+            System.out.print(item);
             getJspContext().setAttribute(var, item);
             getJspBody().invoke(null);
         }
