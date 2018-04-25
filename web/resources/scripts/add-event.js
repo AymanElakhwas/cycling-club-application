@@ -7,6 +7,7 @@
 
             $("#navMain").hide();
             $(".view-panel").hide();
+            $(".event-details").hide();
             $("#dvAddEventContainer").show();
 
         });
@@ -21,6 +22,7 @@
             $("#navMain").show();
             $(".view-panel").first().show();
             $("#dvAddEventContainer").hide();
+            $(".event-details").show();
         });
 
         $("#btnCreateEvent").click(function () {
@@ -63,6 +65,7 @@
                     $("#navMain").show();
                     $(".view-panel").first().show();
                     $("#dvAddEventContainer").hide();
+                    $(".event-details").show();
 
                     upcomingEventsClicked();
                     alert("Done")

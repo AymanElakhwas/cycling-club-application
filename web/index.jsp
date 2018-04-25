@@ -111,10 +111,10 @@
                 <jsp:include page="live-events.jsp"/>
                 <jsp:include page="enrolled-events.jsp"/>
                 <jsp:include page="myride-events.jsp"/>
-                <!--jsp:include page="add-event.jsp"/-->
+                <jsp:include page="add-event.jsp"/>
             </div>
-            <div class="column is-5 event-details">
-                <%--<jsp:include page="event-details.jsp"/>--%>
+            <div class="column is-5 main-map">
+                <jsp:include page="map.html"/>
             </div>
         </div>
     </div>

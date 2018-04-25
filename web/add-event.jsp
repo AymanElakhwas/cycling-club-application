@@ -6,19 +6,6 @@
 
     <mytag:Head theclass='panel-heading' words='Create Event' />
 
-    <div class="add-event-map">
-        <div id="floating-panel">
-            <a class="button is-danger" id="btnDeletePath">
-                    <span class="icon is-small">
-                         <i class="fas fa-times"></i>
-                    </span>
-                <span>Clear</span>
-            </a>
-        </div>
-        <div id="map"></div>
-        <label id="lblMapError" style="color: red;"></label>
-    </div>
-
         <div class="add-event-data">
             <div class="field">
                 <label class="label" id="lblTitle">title</label>
