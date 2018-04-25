@@ -1,10 +1,11 @@
 <!-- @author Abdelrahman-->
 
+<%@ taglib prefix='mytag' uri='TagTest'%>
+
 <div id="dvAddEventContainer" style="display: none">
 
-    <p class="panel-heading">
-        Create Event
-    </p>
+    <mytag:Head theclass='panel-heading' words='Create Event' />
+
 
     <div class="add-event-map">
         <div id="floating-panel">

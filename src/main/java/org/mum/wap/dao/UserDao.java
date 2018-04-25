@@ -1,7 +1,10 @@
+/**
+ * @author Abdelrahman
+ */
+
 package org.mum.wap.dao;
 import org.mum.wap.model.User;
 
-import javax.jws.soap.SOAPBinding;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
