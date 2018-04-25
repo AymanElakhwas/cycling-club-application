@@ -33,8 +33,9 @@ const myridesEventsClicked = function () {
         const eventId = $(this).attr("data-event-id");
         $("a.myrides-event-record").removeClass("is-active");
         $(this).addClass("is-active");
-        //TODO add logic
-        console.log("myrides-event-record " + eventId);
+        $('.column.event-details').empty();
+        $.get("/EventDetails?eventid="+eventId).done(function(data){$('.column.event-details').append(data)});
+        console.log("upcoming-event-record " + eventId);
     });
 
 
