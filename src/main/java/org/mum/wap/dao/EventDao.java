@@ -9,7 +9,6 @@ import org.mum.wap.model.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -120,7 +119,6 @@ public class EventDao {
         return helper.updateInDB(updateStmt);
 
     }
-
 
     public static Event getEventById(int pId) {
         Helper helper = new Helper();
@@ -270,7 +268,6 @@ public class EventDao {
         return null;
     }
 
-
     public static long joinEvent(long eventId, long userId) {
         Helper helper = new Helper();
         helper.makeJDBCConnection();
@@ -291,7 +288,6 @@ public class EventDao {
         for (Event event : lstEvents) {
             sql += event.getId() + ",";
         }
-
         ResultSet rs2 = helper.getDataFromDB("SELECT * FROM `event_rout` WHERE event_id in(" + sql.substring(0, sql.length() - 1) + ")");
 
         List<RoutePoint> lstRoadPoints = toRoadPoint(rs2, lstEvents);

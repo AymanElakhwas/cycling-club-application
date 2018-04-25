@@ -61,6 +61,7 @@
 
 
 </div>
+<script src="resources/scripts/map.js"></script>
 <script src="resources/scripts/add-event.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk_JTdFX0pCAgSvyVK74dPaSQz1ybPH-E&callback=initMap">
