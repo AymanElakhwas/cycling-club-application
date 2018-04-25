@@ -19,7 +19,7 @@ public class RaiseFlagForEventServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        long eventId = Long.parseLong(request.getParameter("eventId"));
+        int eventId = Integer.parseInt(request.getParameter("eventId"));
 
         EventService eventService = new EventService();
         eventService.raiseFlagForEvent(eventId);

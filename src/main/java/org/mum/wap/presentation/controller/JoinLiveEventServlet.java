@@ -20,8 +20,8 @@ public class JoinLiveEventServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        long eventId = Long.parseLong(request.getParameter("eventId"));
-        long userId = ((User) request.getSession().getAttribute("user")).getId();
+        int eventId = (int) Long.parseLong(request.getParameter("eventId"));
+        int userId = (int) ((User) request.getSession().getAttribute("user")).getId();
 
         EventService eventService = new EventService();
         eventService.joinEvent(eventId, userId);

@@ -27,7 +27,7 @@ public class GetEnrolledEventsServlet extends HttpServlet {
         EventService es = new EventService();
         User user = (User) request.getSession().getAttribute("user");
 
-        JSONArray events = es.getEnrolledEvents(user.getId());
+        JSONArray events = es.getEnrolledEvents((int) user.getId());
         JSONObject result = new JSONObject();
 
         result.put("user", JsonSerializer.serialize(user));

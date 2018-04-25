@@ -25,10 +25,11 @@ public class GetMyRideEventsServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EventService es = new EventService();
-
-        JSONArray events = es.getMyRideEvents();
-        JSONObject result = new JSONObject();
         User user = (User) request.getSession().getAttribute("user");
+
+        JSONArray events = es.getMyRideEvents((int) user.getId());
+        JSONObject result = new JSONObject();
+
         result.put("user", JsonSerializer.serialize(user));
         result.put("events",events);
 

@@ -12,11 +12,12 @@ import java.util.List;
  * @author Ayman Elakhwas
  */
 public class EventService {
+
     public JSONArray getUpcomingEvents() {
         return JsonSerializer.serializeEvents(EventDao.getEvents());
     }
 
-    public void joinEvent(long eventId, long userId) {
+    public void joinEvent(int eventId, int userId) {
         EventDao.joinEvent(eventId, userId);
     }
 
@@ -25,27 +26,29 @@ public class EventService {
         return JsonSerializer.serializeEvents(events);
     }
 
-    public JSONArray getEnrolledEvents(long id) {
-        return JsonSerializer.getMockEventsJson();
+    public JSONArray getEnrolledEvents(int id) {
+        List<Event> events = EventDao.getEnrolledEventForUser((int) id);
+        return JsonSerializer.serializeEvents(events);
     }
 
-    public JSONArray getMyRideEvents() {
-        return JsonSerializer.getMockEventsJson();
+    public JSONArray getMyRideEvents(int id) {
+        List<Event> events = EventDao.getMyCreatedEventsForUser(id);
+        return JsonSerializer.serializeEvents(events);
     }
 
-    public void startEvent(long eventId) {
+    public void startEvent(int eventId) {
+        EventDao.updateEventStatus(eventId, 1);
     }
 
-    public void raiseFlagForEvent(long eventId) {
+    public void raiseFlagForEvent(int eventId) {
+        EventDao.updateEventStatus(eventId, 2);
     }
 
-    public void finishEvent(long eventId) {
-
-
+    public void finishEvent(int eventId) {
+        EventDao.updateEventStatus(eventId, 3);
     }
 
     public List<RoutePoint> getRoutePoints(String pJsonStr) {
-
         return JsonDeserializer.deserializeRoutePoints(pJsonStr);
     }
 }
