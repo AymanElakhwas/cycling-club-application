@@ -56,9 +56,7 @@ const upcomingEventsClicked = function () {
                 $.get("/EventRoutePoints?eventid="+eventId).done(
                     function(routePoints)
                     {
-                       alert("Es7a Yaba")
-                        console.log("7aaamo")
-                        console.log(routePoints)
+                        drawPath(routePoints);
                     });
             });
         console.log("upcoming-event-record " + eventId);
