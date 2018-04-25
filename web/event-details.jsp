@@ -15,7 +15,7 @@
                     <label class="label has-background-light">Route of Event</label>
                     <div class="control">
                         <%--<div class="add-event-map">--%>
-                            <%--<div id="map"></div>--%>
+                            <%--<div id="map"> </div>--%>
                         <%--</div>--%>
                     </div>
                 </div>
