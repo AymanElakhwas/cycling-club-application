@@ -41,19 +41,29 @@ public class Helper {
 
     }
 
-    public boolean addDataToDB(String pInsertStatement) {
+    public long addDataToDB(String pInsertStatement) {
+
+        long insertedId=0;
 
         try {
             crunchifyPrepareStat = dbConn.prepareStatement(pInsertStatement);
             // execute insert SQL statement
             crunchifyPrepareStat.executeUpdate();
 
-            return true;
+            try (ResultSet generatedKeys = crunchifyPrepareStat.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                     insertedId = generatedKeys.getLong(1);
+                } else {
+                    throw new SQLException("Creating user failed, no ID obtained.");
+                }
+            }
+
+            return  insertedId;
         } catch (
 
                 SQLException e) {
             e.printStackTrace();
-            return false;
+            return  insertedId;
         }
     }
 

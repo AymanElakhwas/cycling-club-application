@@ -2,6 +2,7 @@ package org.mum.wap.presentation.controller;
 
 
 import org.mum.wap.dao.EventDao;
+import org.mum.wap.dao.RoutePointDao;
 import org.mum.wap.model.Event;
 import org.mum.wap.model.RoutePoint;
 import org.mum.wap.service.EventService;
@@ -29,13 +30,20 @@ public class AddEvent extends HttpServlet {
         List<RoutePoint> lstPoints=  es.getRoutePoints(markers);
 
 
-
-
-        LocalDateTime result= LocalDateTime.now();
-
         //Instant instant = Instant.parse(date);
         //LocalDateTime result = LocalDateTime.ofInstant(instant, ZoneId.of(ZoneOffset.UTC.getId()));
-        EventDao.addEvent(title,description,result,0,"",1);
+
+        LocalDateTime result= LocalDateTime.now();
+       long eventId= EventDao.addEvent(title,description,result,0,"",1);
+
+
+        for (RoutePoint routePoint:lstPoints) {
+
+            RoutePointDao.addRoutePoint(routePoint.getLat()+","+routePoint.getLon(),routePoint.getOrder(),Math.toIntExact(eventId));
+        }
+
+
+
 
     }
 

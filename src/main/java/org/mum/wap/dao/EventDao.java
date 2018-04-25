@@ -80,7 +80,7 @@ public class EventDao {
         return lstEvents;
     }
 
-    public static boolean addEvent(String title, String description, LocalDateTime startDateTime, int status, String currentLocation, int created_by) {
+    public static long addEvent(String title, String description, LocalDateTime startDateTime, int status, String currentLocation, int created_by) {
 
         Helper helper = new Helper();
         helper.makeJDBCConnection();
