@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="column have-top-padding ">
-                <span class="icon is-large">User</span>
+                <span class="icon is-large">${user.name}</span>
             </div>
             <div class="column have-top-padding ">
                 <span class="icon is-large"><i class="fas fa-user-circle fa-2x"></i></span>

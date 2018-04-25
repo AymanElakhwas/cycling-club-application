@@ -40,11 +40,17 @@ const liveEventsClicked = function () {
         $(".live-pnl").children("a").first().click();
     });
 
+
+};
+
+$(function () {
     $(document).on("click", "a.live-event-record", function (event) {
         const eventId = $(this).attr("data-event-id");
         $("a.live-event-record").removeClass("is-active");
         $(this).addClass("is-active");
-        $.get("/EventDetails?eventid="+eventId).done(function(data){$('.column.event-details').empty().append(data)});
+        $.get("/EventDetails?eventid=" + eventId).done(function (data) {
+            $('.column.event-details').empty().append(data)
+        });
         console.log("live-event-record " + eventId);
     });
 
@@ -57,4 +63,4 @@ const liveEventsClicked = function () {
                 btn.removeClass("is-primary").addClass("is-warning").val("Enrolled");
             });
     });
-};
+});

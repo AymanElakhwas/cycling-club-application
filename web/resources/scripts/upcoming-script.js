@@ -40,6 +40,9 @@ const upcomingEventsClicked = function () {
         $(".upcoming-pnl").children("a").first().click();
     });
 
+};
+
+$(function(){
     $(document).on("click", "a.upcoming-event-record", function (event) {
         const eventId = $(this).attr("data-event-id");
         $("a.upcoming-event-record").removeClass("is-active");
@@ -69,6 +72,5 @@ const upcomingEventsClicked = function () {
                 btn.removeClass("is-primary").addClass("is-warning").val("Enrolled");
             });
     });
-};
-
-$(upcomingEventsClicked());
+        upcomingEventsClicked()
+});

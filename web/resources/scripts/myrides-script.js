@@ -29,7 +29,9 @@ const myridesEventsClicked = function () {
         });
         $(".myrides-pnl").children("a").first().click();
     });
+};
 
+$(function () {
     $(document).on("click", "a.myrides-event-record", function (event) {
         const eventId = $(this).attr("data-event-id");
         $("a.myrides-event-record").removeClass("is-active");
@@ -109,4 +111,4 @@ const myridesEventsClicked = function () {
         });
     });
 
-};
+});

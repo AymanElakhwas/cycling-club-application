@@ -16,11 +16,16 @@ const enrolledEventsClicked = function () {
         $(".enrolled-pnl").children("a").first().click();
     });
 
+};
+
+$(function () {
     $(document).on("click", "a.enrolled-event-record", function (event) {
         const eventId = $(this).attr("data-event-id");
         $("a.enrolled-event-record").removeClass("is-active");
         $(this).addClass("is-active");
-        $.get("/EventDetails?eventid="+eventId).done(function(data){$('.column.event-details').empty().append(data)});
+        $.get("/EventDetails?eventid=" + eventId).done(function (data) {
+            $('.column.event-details').empty().append(data)
+        });
         console.log("enrolled-event-record " + eventId);
     });
-};
+});
