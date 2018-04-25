@@ -1,5 +1,7 @@
 /**
  * @author Abdelrahman
+ *
+ * this class is used for the custom tag of type paragraph
  */
 package org.mum.wap.presentation.customtag;
 
