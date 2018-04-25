@@ -13,7 +13,9 @@
             <div class="field">
                 <label class="label">Route of Event</label>
                 <div class="control">
-                    Place HOLDER
+                    <div class="add-event-map">
+                        <div id="map"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,3 +62,5 @@
         </div>
     </div>
 </div>
+
+
