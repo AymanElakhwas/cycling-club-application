@@ -5,7 +5,7 @@
   Time: 5:35 PM
   To change this template use File | Settings | File Templates.
 --%>
-
+<%@taglib prefix="cyclist" uri="WEB-INF/custom.tld" %>
 
 <div class="section view-panel event-details-pnl">
     <div class="container">
@@ -49,9 +49,9 @@
                 <label class="label has-background-light">Participant</label>
                 <div class="control">
                     <div class="columns is-multiline is-centered is-8 participant-holder">
-                    <cyclist:FOREACH var="user" items="${Event.participants}">
+                    <cyclist:FOREACH var="participant" items="${Event.participants}">
                         <div class="column has-background-light" style="margin: 1px">
-                            ${user.name}
+                            ${participant.name}
                         </div>
                     </cyclist:FOREACH>
                     </div>
