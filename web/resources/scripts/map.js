@@ -2,7 +2,7 @@
 var poly;
 var map;
 var markers=[];
-
+var mapDisabled=true;
 function initMap() {
 
     map = new google.maps.Map(document.getElementById('map'), {
@@ -23,29 +23,42 @@ function initMap() {
 
 // Handles click events on a map, and adds a new point to the Polyline.
 function addLatLng(event) {
-    var path = poly.getPath();
 
+    if(!mapDisabled){
     addToPath(event.latLng);
     addMarker(event.latLng);
+    }
 }
 
 function drawPath(points) {
 
-    for (var property1 in points) {
-        string1 = string1 + object1[property1];
+    deleteMarkers();
+    for (var point of points["events"]) {
+
+        var myLatLng = {lng: parseFloat(point.lat), lat: parseFloat(point.lon)};
+
+      // addToPath(myLatLng);
+        addMarker(myLatLng);
+
+        map.setCenter(myLatLng);
     }
+
+
 }
 
 function addToPath(latLng) {
 
+    var path = poly.getPath();
     path.push(latLng);
 
 }
-function addMarker(latLng) {
+function addMarker(platLng) {
 
+
+    var path = poly.getPath();
     // Add a new marker at the new plotted point on the polyline.
     var marker = new google.maps.Marker({
-        position: latLng,
+        position: platLng,
         title: '#' + path.getLength(),
         map: map
     });

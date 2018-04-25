@@ -9,7 +9,9 @@
             $(".view-panel").hide();
             $(".event-details").hide();
             $("#dvAddEventContainer").show();
-
+            $('#btnClearMarks').attr('disabled', false);
+            mapDisabled=false;
+            deleteMarkers();
         });
 
 
@@ -23,6 +25,11 @@
             $(".view-panel").first().show();
             $("#dvAddEventContainer").hide();
             $(".event-details").show();
+            deleteMarkers();
+            mapDisabled=true;
+            $("#lblMapError").text("").css("color","black");
+            $('#btnClearMarks').attr('disabled', true);
+
         });
 
         $("#btnCreateEvent").click(function () {
@@ -66,9 +73,11 @@
                     $(".view-panel").first().show();
                     $("#dvAddEventContainer").hide();
                     $(".event-details").show();
-
+                    $('#btnClearMarks').attr('disabled', true);
+                    mapDisabled=true;
+                    deleteMarkers();
                     upcomingEventsClicked();
-                    alert("Done")
+
                 })
                     .fail(function() {
                         alert( "error" );
