@@ -10,6 +10,7 @@ import java.io.IOException;
 /**
  * @author Ayman Elakhwas
  */
+@WebServlet(name="StartUp",urlPatterns={"/StartUp"})
 public class StartUp extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.sendRedirect("login.jsp");

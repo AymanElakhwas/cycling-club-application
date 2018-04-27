@@ -33,7 +33,7 @@
     <cyclist:NOTIFICATION text="Please Provide Your Username and Passord to Login!" htmlClass="is-medium notification is-primary nodisplay"/>
     <div class="columns">
         <div class="column column is-4 is-offset-one-third">
-        <form action="/Login" method="Post">
+        <form action="Login" method="Post">
         <cyclist:NOTIFICATION text="Your UserName or Password is Wrong" htmlClass="${error!=null?error:'nodisplay'}"/>
         <div class="field">
             <label class="label">Username</label>

@@ -17,7 +17,7 @@ $(function(){
     }
 
     function showNotifications(){
-        $.get("/Notification").done(function(data){console.log(data); addNotifications(data);});
+        $.get("Notification").done(function(data){console.log(data); addNotifications(data);});
 
     }
 

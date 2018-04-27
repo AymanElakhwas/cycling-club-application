@@ -48,12 +48,12 @@ $(function(){
         $("a.upcoming-event-record").removeClass("is-active");
         $(this).addClass("is-active");
 
-        $.get("/EventDetails?eventid="+eventId).done(
+        $.get("EventDetails?eventid="+eventId).done(
             function(data)
             {
                 $('.column.event-details').empty().append(data)
 
-                $.get("/EventRoutePoints?eventid="+eventId).done(
+                $.get("EventRoutePoints?eventid="+eventId).done(
                     function(routePoints)
                     {
                         drawPath(routePoints);

@@ -71,7 +71,7 @@
 
             if(title&&date&&markers.length>1) {
 
-                $.post( "http://localhost:8080/AddEvent", { "title": title, "date": date,"description":description,"markers":JSON.stringify({"RoutePoints":points}) } ) .done(function() {
+                $.post( "AddEvent", { "title": title, "date": date,"description":description,"markers":JSON.stringify({"RoutePoints":points}) } ) .done(function() {
 
                     $("#navMain").show();
                     $(".view-panel").first().show();
